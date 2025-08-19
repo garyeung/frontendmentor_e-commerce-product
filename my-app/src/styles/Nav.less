@@ -1,0 +1,32 @@
+.nav{
+    display: none;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.nav__link{
+    display: block;
+    text-decoration: none;
+    color: @dark-grayish-blue;
+    text-transform: capitalize;
+    border-bottom:4px @white solid;
+}
+
+.nav__link--active {
+    border-bottom-color: @orange;
+    color: @very-dark-blue;
+}
+
+@media  screen and (min-width: @mobile-width) {
+   .nav {
+     display: flex; 
+     gap: @mobile-space*3;
+     height: 100%;
+     align-items: baseline;
+   }
+   .nav__link{
+    display: flex;
+    height: 100%;
+    align-items: center;
+   }
+}

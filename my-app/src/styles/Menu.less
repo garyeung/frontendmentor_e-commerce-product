@@ -1,0 +1,60 @@
+.menu__board{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -999%;
+  z-index: 2;
+  display: grid; 
+  grid-template-columns: 1.4fr 0.6fr; 
+  grid-template-rows: 0.2fr 1.8fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "close grayboard"
+    "nav grayboard"; 
+
+  transition: left 0.2s cubic-bezier(.65,.05,.36,1);
+    
+    .nav{
+        display: flex;
+        grid-area: nav;
+        flex-direction: column;
+        background-color: @white;
+        justify-content: flex-start;
+        gap: 16px;
+        padding: @mobile-space;
+
+        .nav__link{
+            color: @very-dark-blue;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+    }
+}
+
+.menu__grayboard {
+    grid-area: grayboard;
+    background-color: @black-lightbox;
+    width: 0;
+    transition: width 0.25s cubic-bezier(.65,.05,.36,1); 
+}
+.menu__closeboard {
+    display: block;
+    grid-area: close;
+    background: @white;
+    padding: @mobile-space;
+}
+
+.menu__board--open{
+    left: 0;
+
+    .menu__grayboard {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: @mobile-width) {
+   .menu__button {
+    display: none;
+   }
+}

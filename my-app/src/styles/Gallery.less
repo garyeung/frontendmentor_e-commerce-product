@@ -1,0 +1,144 @@
+.gallery__mainimg {
+  display: block;
+  :hover {
+    cursor: pointer;
+  }
+  pointer-events: none;
+}
+
+.thumbnail {
+  background: @white;
+}
+
+.gallery__thumbnails {
+  display: none;
+}
+
+.gallery__main {
+  position: relative;
+}
+
+.gallery__buttons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  top: 45%;
+}
+
+.gallery__button {
+  background: white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  
+  img {
+    width: 12px;
+    height: 16px;
+  }
+}
+
+@media screen and (min-width: @desktop-width)  {
+  .gallery__mainimg{
+    pointer-events:initial;
+  }
+    
+.gallery {
+  width: 100%;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  row-gap: @desktop-space/2;
+  grid-template-areas:
+  "main     main     main     main    " 
+  "main     main     main     main    " 
+  "main     main     main     main    " 
+  "thumbnails thumbnails thumbnails thumbnails";
+}
+
+.gallery__thumbnails {
+  grid-area: thumbnails;
+  display: flex;
+  gap: @desktop-space/2;
+  align-items: baseline;
+}
+
+.gallery__main {
+    grid-area: main;
+    img {
+        border-radius: @border-r*4;
+    }
+}
+
+.thumbnail {
+    display: inline-flex;  
+    border-radius: @border-r*2;
+
+    :active {
+      opacity: 0.5;
+    }
+
+    img {
+        border-radius: @border-r*2;
+    }
+
+}
+
+.thumbnail--active {
+  border: 2px @orange solid;
+  img {
+    border-radius: 0;
+    opacity: 0.3;
+  }
+}
+
+.gallery__buttons{
+  display: none;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  background-color: @black-lightbox;
+
+  .gallery__main {
+  max-width: 35%;
+  }
+
+  .gallery__thumbnails {
+  max-width: 30%;
+  }
+
+  .lightbox__closeboard {
+     width: 35%;
+  }
+
+  .lightbox__closebutton {
+     float: right;
+  }
+
+  .gallery__buttons {
+    display: flex;
+    left: -5%;
+    width: 110%;
+  }
+
+  .gallery__button {
+    width: 48px;
+    height: 48px;
+  }
+
+}
+
+}

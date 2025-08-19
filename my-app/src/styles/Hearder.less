@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: @mobile-space;
+}
+.header__item {
+    display: flex;
+    gap: @mobile-space;
+    align-items: baseline;
+}
+
+
+@media screen and (min-width: @mobile-width) {
+    .header {
+        border-bottom: 1px @light-grayish-blue solid;
+        padding-bottom: 4px;
+        height: @desktop-space*1.5;
+        margin: 0;
+    }
+   .header__item{
+    gap: @mobile-space*2;
+    align-items: center;
+   } 
+}
+
+@media screen and (min-width: @desktop-width) {
+   .header__item{
+    gap: @mobile-space*4;
+   } 
+    
+}

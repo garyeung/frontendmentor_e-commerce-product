@@ -1,0 +1,21 @@
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 2px @white solid;
+    border-radius: 100%;
+    width: 22px;
+
+    img{
+        border-radius: 100%;
+    }
+}
+.avatar--active {
+    border-color: @orange;
+}
+
+@media screen and (min-width: @mobile-width) {
+   .avatar{
+        width: 48px;
+   } 
+}
