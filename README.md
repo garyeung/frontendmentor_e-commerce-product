@@ -38,8 +38,8 @@ Users should be able to:
 
 
 ### Links
-- Solution URL: [Solution](https://github.com/garyeung/Frontend-Mentor-Challenges/tree/master/ecommerce-product-page-main)
-- Live Site URL: [Live](https://garyeung.github.io/Frontend-Mentor-Challenges/ecommerce-product-page-main)
+- Solution URL: [Solution](https://github.com/garyeung/frontendmentor_e-commerce-product)
+- Live Site URL: [Live](https://frontendmentor-e-commerce-product.vercel.app)
 
 ## My process
 
