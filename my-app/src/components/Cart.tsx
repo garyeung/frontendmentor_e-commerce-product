@@ -58,7 +58,7 @@ function Cart(){
 
           <div
           className={`cart__container ` + (active? 'cart__container--active': "") }>
-            <h3>Cart</h3> 
+            <h3 className="cart__title">Cart</h3> 
             <div className="cart__items">
                 {(itemsCount === 0)? <EmptyCart/> : (<>{itemList!} <Checkout/></>)}
             </div>
