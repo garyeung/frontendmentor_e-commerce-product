@@ -1,14 +1,20 @@
-import  { useContext, useEffect, useState } from "react";
+import  { useContext, useEffect, useRef, useState } from "react";
 import CartIcon from '../assets/images/icon-cart-dark.svg?react';
 import deleteUrl from '../assets/images/icon-delete.svg';
 import { ActionType, CartItem, myContext, priceInString } from "../service";
 import '../styles/Cart.less';
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 
 function Cart(){
     const cart = useContext(myContext);
     const [active, setActive] = useState(false);
     const [itemsCount, setItemsCount] = useState(0);
+    const cartRef = useRef<HTMLDivElement>(null);
+
+    useClickOutside(cartRef, ()=> {
+        setActive(false);
+    })
 
     useEffect(() => {
      if(cart!.data.length !== 0){
@@ -44,17 +50,18 @@ function Cart(){
     }
     const items = displayCartItem(cart!.data);
     return (
-        <div className="cart">
+        <div className="cart" ref={cartRef}>
           <button onClick={handleActive} className="cart__button">
             <span className={"cart__count " + (itemsCount === 0 ? "" : "cart__count--active")}>{itemsCount}</span>
             <CartIcon />
           </button>
 
-          <div className={`cart__content ` + (active? 'cart__content--active': "") }>
-          <h3>Cart</h3> 
-          <div className="cart__items">
-              {(itemsCount === 0)? <EmptyCart/> : (<>{items!} <Checkout/></>)}
-          </div>
+          <div
+          className={`cart__content ` + (active? 'cart__content--active': "") }>
+            <h3>Cart</h3> 
+            <div className="cart__items">
+                {(itemsCount === 0)? <EmptyCart/> : (<>{items!} <Checkout/></>)}
+            </div>
           </div>
         </div>
     );
