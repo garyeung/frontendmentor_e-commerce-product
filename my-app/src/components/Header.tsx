@@ -1,6 +1,6 @@
 import '../styles/Hearder.less';
 import Avatar from './atoms/Avatar';
-import Logo from './Logo';
+import Logo from './atoms/Logo';
 import avatarUrl from '../assets/images/image-avatar.png';
 import Nav from './Nav';
 import Menu from './Menu';
