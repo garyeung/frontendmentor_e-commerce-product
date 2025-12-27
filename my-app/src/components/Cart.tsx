@@ -36,7 +36,7 @@ function Cart(){
         })
         return count;
     }
-    const displayCartItem = (Items: CartItem[],) => {
+    const ListCartItem = (Items: CartItem[],) => {
         if(Items.length){
         
         return Items.map( (item, index) => {
@@ -48,7 +48,7 @@ function Cart(){
         })
         }
     }
-    const items = displayCartItem(cart!.data);
+    const itemList = ListCartItem(cart!.data);
     return (
         <div className="cart" ref={cartRef}>
           <button onClick={handleActive} className="cart__button">
@@ -60,7 +60,7 @@ function Cart(){
           className={`cart__content ` + (active? 'cart__content--active': "") }>
             <h3>Cart</h3> 
             <div className="cart__items">
-                {(itemsCount === 0)? <EmptyCart/> : (<>{items!} <Checkout/></>)}
+                {(itemsCount === 0)? <EmptyCart/> : (<>{itemList!} <Checkout/></>)}
             </div>
           </div>
         </div>
