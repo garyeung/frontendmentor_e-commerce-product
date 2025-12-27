@@ -1,57 +1,79 @@
-import  { useContext, useEffect, useState } from "react";
-import cartUrl from '../assets/images/icon-cart-dark.svg';
+import  { useContext, useEffect, useRef, useState } from "react";
+import CartIcon from '../assets/images/icon-cart-dark.svg?react';
 import deleteUrl from '../assets/images/icon-delete.svg';
 import { ActionType, CartItem, myContext, priceInString } from "../service";
 import '../styles/Cart.less';
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 
 function Cart(){
-    const [isEmpty, setIsEmpty] =  useState(true);
-    const [isOpen, setIsOpen] = useState(false);
     const cart = useContext(myContext);
+    const [active, setActive] = useState(false);
     const [itemsCount, setItemsCount] = useState(0);
+    const cartRef = useRef<HTMLDivElement>(null);
+
+    useClickOutside(cartRef, ()=> {
+        setActive(false);
+    })
 
     useEffect(() => {
      if(cart!.data.length !== 0){
-         setIsEmpty(false);
-         setItemsCount(countItems(cart!.data));
+         setItemsCount(counting(cart!.data));
      }
      else {
-         setIsEmpty(true);
          setItemsCount(0);
      }
     }, [cart]) 
 
-    function countItems(items: CartItem[]){
+    const handleActive = () => {
+        setActive(!active);
+    }
+
+    function counting(items: CartItem[]){
         let count = 0;
         items.forEach((item) => {
             count += item.quantity;
         })
         return count;
     }
-    const displayCartItem = (Items: CartItem[],) => {
-        if(Items.length){
+    const ListCartItem = (Items: CartItem[],) => {
         
-        return Items.map( (item, index) => {
+    return <ul className="cart__items">{   
+        Items.map( (item, index) => {
             return (
-            <>
-             <Item {...item} key={index}/>
-            </>
+            <li key={index+item.id}>
+             <Item {...item}/>
+            </li>
             );
         })
-        }
+    }</ul>
     }
-    const items = displayCartItem(cart!.data);
+
+    const itemList = ListCartItem(cart!.data);
+
     return (
-        <>
-        <div onClick={()=>{setIsOpen(!isOpen)}} className="cart__button" role="button"><span className={"cart__count " + (isEmpty? "" : "cart__count--appear")}>{itemsCount}</span><img src={cartUrl} alt='cart'/></div>
-        <div className={`cart ` + (isOpen? 'cart--open': "") }>
-        <h3>Cart</h3> 
-        <div className="cart__items">
-            {(isEmpty)? <EmptyCart/> : (<>{items!} <Checkout/></>)}
+        <div className="cart" ref={cartRef}>
+          <button onClick={handleActive} className="cart__button">
+            <span className={"cart__count " + (itemsCount === 0 ? "" : "cart__count--active")}>{itemsCount}</span>
+            <CartIcon />
+          </button>
+
+          <div
+          className={`cart__container ` + (active? 'cart__container--active': "") }>
+            <h3 className="cart__title">Cart</h3> 
+            <div className="cart__content">
+            {
+                itemsCount === 0?
+                <EmptyCart/>
+                :
+                <>
+                 {itemList}
+                 <Checkout/>
+                </>
+            }
+            </div>
+          </div>
         </div>
-        </div>
-        </>
     );
 }
 
