@@ -43,15 +43,15 @@ function Cart(){
     }
     const items = displayCartItem(cart!.data);
     return (
-        <>
+        <div>
         <div onClick={()=>{setIsOpen(!isOpen)}} className="cart__button" role="button"><span className={"cart__count " + (isEmpty? "" : "cart__count--appear")}>{itemsCount}</span><img src={cartUrl} alt='cart'/></div>
-        <div className={`cart ` + (isOpen? 'cart--open': "") }>
+        <div className={`cart__content ` + (isOpen? 'cart__content--open': "") }>
         <h3>Cart</h3> 
         <div className="cart__items">
             {(isEmpty)? <EmptyCart/> : (<>{items!} <Checkout/></>)}
         </div>
         </div>
-        </>
+        </div>
     );
 }
 

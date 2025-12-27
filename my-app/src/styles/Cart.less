@@ -1,4 +1,4 @@
-.cart {
+.cart__content {
     opacity: 0;
     position: absolute;
     top: -999%;
@@ -27,7 +27,7 @@
 
     
 }
-.cart--open {
+.cart__content--open {
     opacity: 1;
     top: 10%;
     z-index: 1;
@@ -125,11 +125,11 @@
 
 
 @media screen  and (min-width: @mobile-width){
-   .cart {
+   .cart__content {
       width: 25%;
       right: 5%;
     } 
-    .cart--open {
+    .cart__content--open {
         top: 15%;
     }
 }
