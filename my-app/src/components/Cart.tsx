@@ -37,18 +37,20 @@ function Cart(){
         return count;
     }
     const ListCartItem = (Items: CartItem[],) => {
-        if(Items.length){
         
-        return Items.map( (item, index) => {
+    return <ul className="cart__items">{   
+        Items.map( (item, index) => {
             return (
-            <>
-             <Item {...item} key={index}/>
-            </>
+            <li key={index+item.id}>
+             <Item {...item}/>
+            </li>
             );
         })
-        }
+    }</ul>
     }
+
     const itemList = ListCartItem(cart!.data);
+
     return (
         <div className="cart" ref={cartRef}>
           <button onClick={handleActive} className="cart__button">
@@ -59,9 +61,15 @@ function Cart(){
           <div
           className={`cart__container ` + (active? 'cart__container--active': "") }>
             <h3 className="cart__title">Cart</h3> 
-            <div className="cart__items">
-                {(itemsCount === 0)? <EmptyCart/> : (<>{itemList!} <Checkout/></>)}
-            </div>
+            {
+                itemsCount === 0?
+                <EmptyCart/>
+                :
+                <>
+                 {itemList}
+                 <Checkout/>
+                </>
+            }
           </div>
         </div>
     );
