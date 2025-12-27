@@ -3,10 +3,10 @@ import './Avatar.less';
 
 
 function Avatar({avatarUrl}:{avatarUrl: string}){
-    const [cliking, setClicking]= useState(false);
+    const [active, setActive]= useState(false);
 
     return(
-        <a href="#" className={`avatar ${cliking? 'avatar--active': ""}`} onMouseDown={()=>setClicking(true)} onMouseUp={()=>setClicking(false)}> 
+        <a href="#" className={`avatar ${active? 'avatar--active': ""}`} onMouseDown={()=>setActive(true)} onMouseUp={()=>setActive(false)}> 
             <img src={avatarUrl} alt="avatar"/>
         </a>
     )
