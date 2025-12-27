@@ -6,8 +6,8 @@ import '../styles/Cart.less';
 
 
 function Cart(){
-    const [active, setActive] = useState(false);
     const cart = useContext(myContext);
+    const [active, setActive] = useState(false);
     const [itemsCount, setItemsCount] = useState(0);
 
     useEffect(() => {
@@ -18,6 +18,10 @@ function Cart(){
          setItemsCount(0);
      }
     }, [cart]) 
+
+    const handleActive = () => {
+        setActive(!active);
+    }
 
     function counting(items: CartItem[]){
         let count = 0;
@@ -41,10 +45,10 @@ function Cart(){
     const items = displayCartItem(cart!.data);
     return (
         <div className="cart">
-          <button onClick={()=>{setActive(!active)}} className="cart__button">
+          <button onClick={handleActive} className="cart__button">
             <span className={"cart__count " + (itemsCount === 0 ? "" : "cart__count--active")}>{itemsCount}</span>
             <CartIcon />
-            </button>
+          </button>
 
           <div className={`cart__content ` + (active? 'cart__content--active': "") }>
           <h3>Cart</h3> 
