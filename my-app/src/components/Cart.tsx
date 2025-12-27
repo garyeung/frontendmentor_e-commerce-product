@@ -7,7 +7,7 @@ import '../styles/Cart.less';
 
 function Cart(){
     const [isEmpty, setIsEmpty] =  useState(true);
-    const [isOpen, setIsOpen] = useState(false);
+    const [active, setActive] = useState(false);
     const cart = useContext(myContext);
     const [itemsCount, setItemsCount] = useState(0);
 
@@ -44,8 +44,8 @@ function Cart(){
     const items = displayCartItem(cart!.data);
     return (
         <div className="cart">
-          <div onClick={()=>{setIsOpen(!isOpen)}} className="cart__button" role="button"><span className={"cart__count " + (isEmpty? "" : "cart__count--appear")}>{itemsCount}</span><img src={cartUrl} alt='cart'/></div>
-          <div className={`cart__content ` + (isOpen? 'cart__content--open': "") }>
+          <div onClick={()=>{setActive(!active)}} className="cart__button" role="button"><span className={"cart__count " + (isEmpty? "" : "cart__count--appear")}>{itemsCount}</span><img src={cartUrl} alt='cart'/></div>
+          <div className={`cart__content ` + (active? 'cart__content--open': "") }>
           <h3>Cart</h3> 
           <div className="cart__items">
               {(isEmpty)? <EmptyCart/> : (<>{items!} <Checkout/></>)}
