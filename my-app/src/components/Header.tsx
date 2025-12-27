@@ -1,5 +1,5 @@
 import '../styles/Hearder.less';
-import Avatar from './Avatar';
+import Avatar from './atoms/Avatar';
 import Logo from './Logo';
 import avatarUrl from '../assets/images/image-avatar.png';
 import logoUrl from '../assets/images/logo.svg';
