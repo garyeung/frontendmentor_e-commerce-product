@@ -42,11 +42,11 @@ function Cart(){
     return (
         <div className="cart">
           <div onClick={()=>{setActive(!active)}} className="cart__button" role="button">
-            <span className={"cart__count " + (itemsCount === 0 ? "" : "cart__count--appear")}>{itemsCount}</span>
+            <span className={"cart__count " + (itemsCount === 0 ? "" : "cart__count--active")}>{itemsCount}</span>
             <CartIcon />
             </div>
 
-          <div className={`cart__content ` + (active? 'cart__content--open': "") }>
+          <div className={`cart__content ` + (active? 'cart__content--active': "") }>
           <h3>Cart</h3> 
           <div className="cart__items">
               {(itemsCount === 0)? <EmptyCart/> : (<>{items!} <Checkout/></>)}
