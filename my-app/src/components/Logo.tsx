@@ -1,4 +1,4 @@
-import '../styles/Logo.less';
+import './Logo.less';
 
 function Logo({logoUrl}: {logoUrl:string}){
     
