@@ -1,9 +1,12 @@
 import './Logo.less';
+import LogoIcon from  "@/assets/images/logo.svg?react"
 
-function Logo({logoUrl}: {logoUrl:string}){
+function Logo(){
     
     return(
-        <img src={logoUrl} alt="logo" className="logo"/>
+        <div className='logo-wrapper'>
+            <LogoIcon />
+        </div>
     );
 }
 
