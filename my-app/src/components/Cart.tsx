@@ -41,10 +41,10 @@ function Cart(){
     const items = displayCartItem(cart!.data);
     return (
         <div className="cart">
-          <div onClick={()=>{setActive(!active)}} className="cart__button" role="button">
+          <button onClick={()=>{setActive(!active)}} className="cart__button">
             <span className={"cart__count " + (itemsCount === 0 ? "" : "cart__count--active")}>{itemsCount}</span>
             <CartIcon />
-            </div>
+            </button>
 
           <div className={`cart__content ` + (active? 'cart__content--active': "") }>
           <h3>Cart</h3> 
