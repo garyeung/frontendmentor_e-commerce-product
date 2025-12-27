@@ -6,18 +6,15 @@ import '../styles/Cart.less';
 
 
 function Cart(){
-    const [isEmpty, setIsEmpty] =  useState(true);
     const [active, setActive] = useState(false);
     const cart = useContext(myContext);
     const [itemsCount, setItemsCount] = useState(0);
 
     useEffect(() => {
      if(cart!.data.length !== 0){
-         setIsEmpty(false);
          setItemsCount(countItems(cart!.data));
      }
      else {
-         setIsEmpty(true);
          setItemsCount(0);
      }
     }, [cart]) 
@@ -44,11 +41,11 @@ function Cart(){
     const items = displayCartItem(cart!.data);
     return (
         <div className="cart">
-          <div onClick={()=>{setActive(!active)}} className="cart__button" role="button"><span className={"cart__count " + (isEmpty? "" : "cart__count--appear")}>{itemsCount}</span><img src={cartUrl} alt='cart'/></div>
+          <div onClick={()=>{setActive(!active)}} className="cart__button" role="button"><span className={"cart__count " + (itemsCount === 0 ? "" : "cart__count--appear")}>{itemsCount}</span><img src={cartUrl} alt='cart'/></div>
           <div className={`cart__content ` + (active? 'cart__content--open': "") }>
           <h3>Cart</h3> 
           <div className="cart__items">
-              {(isEmpty)? <EmptyCart/> : (<>{items!} <Checkout/></>)}
+              {(itemsCount === 0)? <EmptyCart/> : (<>{items!} <Checkout/></>)}
           </div>
           </div>
         </div>
