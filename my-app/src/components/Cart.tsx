@@ -1,5 +1,5 @@
 import  { useContext, useEffect, useState } from "react";
-import cartUrl from '../assets/images/icon-cart-dark.svg';
+import CartIcon from '../assets/images/icon-cart-dark.svg?react';
 import deleteUrl from '../assets/images/icon-delete.svg';
 import { ActionType, CartItem, myContext, priceInString } from "../service";
 import '../styles/Cart.less';
@@ -41,7 +41,11 @@ function Cart(){
     const items = displayCartItem(cart!.data);
     return (
         <div className="cart">
-          <div onClick={()=>{setActive(!active)}} className="cart__button" role="button"><span className={"cart__count " + (itemsCount === 0 ? "" : "cart__count--appear")}>{itemsCount}</span><img src={cartUrl} alt='cart'/></div>
+          <div onClick={()=>{setActive(!active)}} className="cart__button" role="button">
+            <span className={"cart__count " + (itemsCount === 0 ? "" : "cart__count--appear")}>{itemsCount}</span>
+            <CartIcon />
+            </div>
+
           <div className={`cart__content ` + (active? 'cart__content--open': "") }>
           <h3>Cart</h3> 
           <div className="cart__items">
