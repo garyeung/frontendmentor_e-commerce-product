@@ -12,14 +12,14 @@ function Cart(){
 
     useEffect(() => {
      if(cart!.data.length !== 0){
-         setItemsCount(countItems(cart!.data));
+         setItemsCount(counting(cart!.data));
      }
      else {
          setItemsCount(0);
      }
     }, [cart]) 
 
-    function countItems(items: CartItem[]){
+    function counting(items: CartItem[]){
         let count = 0;
         items.forEach((item) => {
             count += item.quantity;
