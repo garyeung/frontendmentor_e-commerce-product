@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/Avatar.less';
+import './Avatar.less';
 
 
 function Avatar({avatarUrl}:{avatarUrl: string}){
