@@ -8,6 +8,7 @@ import IconPre from '@/assets/images/icon-previous.svg?react';
 import { useState } from 'react';
 import Thumbnail from './Thumbnail';
 import Button from './Button';
+import Lightbox from './Lightbox';
 
 export interface Props {
     pictures: string[],
@@ -16,6 +17,7 @@ export interface Props {
 
 function Gallery({pictures, productName}:Props) {
     const [activePic, setActivePic] = useState(0);
+    const [activeLightbox, setActiveLightbox] = useState(false);
 
     const handleActivePic = (action: "pre" | "next") =>  {
         if(action === "next"){
@@ -47,7 +49,9 @@ function Gallery({pictures, productName}:Props) {
                     onClick={() => handleActivePic("next")} 
                     activeIcon={<IconNextActive/>} primaryIcon={<IconNext/>}/>
                 </div>
-                <div className="gallery__mainPic"onClick={()=>{}}>
+                <div 
+                className="gallery__mainPic"
+                onClick={()=>setActiveLightbox(true)}>
                     <img src={pictures[activePic]} alt={productName}/>
                 </div>
             </div>
@@ -55,6 +59,13 @@ function Gallery({pictures, productName}:Props) {
                 {thumbnails}
             </div>
         </div>
+        {activeLightbox && 
+        <Lightbox 
+        pictures={pictures}
+        productName={productName}
+        startIndex={activePic}
+        handleClose={() => setActiveLightbox(false)}
+        />}
     </>)
 }
 
