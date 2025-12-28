@@ -30,8 +30,8 @@ function Gallery({pictures, productName}:Props) {
         }
     }
     
-    const thumbnails = pictures.map((picture, index) => {
-        return <Thumbnail currentPath={picture} key={productName + index} name={productName+index} handleCurrent={()=> setActivePic(index)} active={activePic} current={index}/>
+    const thumbnails = pictures.map((picture, current) => {
+        return <Thumbnail currentPath={picture} key={productName + current} name={productName+current} handleCurrent={()=> setActivePic(current)} active={activePic} current={current}/>
     })
 
     return (<>
