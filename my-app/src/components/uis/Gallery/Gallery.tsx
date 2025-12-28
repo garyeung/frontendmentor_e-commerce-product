@@ -9,6 +9,7 @@ import iconClose from '@/assets/images/icon-close-light.svg';
 import iconCloseActive from '@/assets/images/icon-close-active.svg';
 
 import { useState } from 'react';
+import Thumbnail from './Thumbnail';
 
 export interface GalleryProps {
 pictures: string[], active:number, pushActive: (n:number) => void,
@@ -27,7 +28,7 @@ function Gallery({pictures, active, pushActive, productName}:GalleryProps) {
     const [preUrl, setPreUrl] = useState(iconPres[0]);
 
     const thumbnails = pictures.map((picture, index) => {
-        return <Thumbnail url={picture} key={index} name={'product'+index} selected={pushActive} id={index} active={active}/>
+        return <Thumbnail currentPath={picture} key={productName + index} name={productName+index} handleCurrent={()=> pushActive(index)} active={active} current={index}/>
     })
 
     const handleActive = (action: ActionType) =>  {
@@ -78,15 +79,6 @@ function Gallery({pictures, active, pushActive, productName}:GalleryProps) {
                 {thumbnails}
             </div>
         </div>
-    )
-}
-
-function Thumbnail({selected, url, name, id, active}: {selected: (n: number)=> void, url: string, name: string ,id: number, active: number}) {
-
-    return (
-        <a className={"thumbnail " +(active === id ? "thumbnail--active": "")} onClick={()=>selected(id)}>
-            <img src={url} alt={name}/>
-        </a>
     )
 }
 
