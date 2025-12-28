@@ -1,5 +1,5 @@
 
-import './Gallery.less';
+import './index.less';
 import IconNext from '@/assets/images/icon-next.svg?react';
 import IconNextActive from '@/assets/images/icon-next-active.svg?react'
 import IconPreActive from '@/assets/images/icon-previous-active.svg?react';
