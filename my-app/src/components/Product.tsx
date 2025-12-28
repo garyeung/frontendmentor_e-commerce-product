@@ -1,4 +1,3 @@
-import { useState } from "react";
 import '../styles/Product.less';
 import Description from "./Description";
 import product1 from '../assets/images/image-product-1.jpg';
@@ -23,20 +22,10 @@ function Product(){
 
     } 
 
-    const [activeimg, setactiveImg] = useState(0);
-
-    const handleActiveImg = (n: number) => {
-      if (n > -1 && n < product.pictures.length) {
-        setactiveImg(n);
-      } else {
-        throw new Error('Wrong image');
-      }
-    };
-    
 
    return (
     <div className="product">
-        <Gallery pictures={product.pictures} active={activeimg} pushActive={handleActiveImg} productName={product.name}/>
+        <Gallery pictures={product.pictures} productName={product.name}/>
 
         <Description {...product} />
     </div>
