@@ -1,7 +1,7 @@
 interface Props {
     currentPath: string,
-    active: string,
-    current: string,
+    active: number,
+    current: number,
     name: string,
     handleCurrent: () => void
 }
