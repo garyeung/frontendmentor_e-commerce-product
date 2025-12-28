@@ -1,0 +1,154 @@
+.gallery__mainPic {
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.thumbnail {
+  background: @white;
+}
+
+.gallery__thumbnails {
+  display: none;
+}
+
+.gallery__main {
+  position: relative;
+}
+
+.gallery__buttons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  top: 45%;
+}
+
+.gallery__button {
+  background: white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+
+  * {
+    pointer-events: none;
+  }  
+}
+
+@media screen and (min-width: @desktop-width)  {
+  .gallery__mainPic{
+    pointer-events:initial;
+
+    img {
+        border-radius: @border-r*4;
+    }
+  }
+    
+.gallery {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  row-gap: @desktop-space/2;
+}
+
+.gallery__thumbnails {
+  display: flex;
+  gap: @desktop-space/2;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnail {
+    display: inline-flex;  
+    border-radius: @border-r*2;
+    border-color: @orange;
+    border-style: solid;
+    border-width: 0px;
+    cursor: pointer;
+
+    img {
+        border-radius: @border-r*2-2px;
+    }
+}
+
+.thumbnail:hover {
+    img {
+        opacity: 0.5;
+    }
+}
+
+.thumbnail--active {
+  border-width: 2px;
+  img {
+    opacity: 0.5;
+  }
+}
+
+.gallery__buttons{
+  display: none;
+}
+
+.lightbox__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;;
+  z-index: 1;
+  background-color: @black-lightbox;
+}
+
+.lightbox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.lightbox__main {
+  position: relative;
+}
+
+.lightbox__mainPic{
+    img {
+        border-radius: @border-r*4;
+    }
+}
+
+.lightbox__thumbnails {
+  display: flex;
+  gap: @desktop-space/2;
+  align-items: center;
+  justify-content: center;
+  margin: @desktop-space/2;
+}
+
+.lightbox__closeBoard {
+  width: 100%;
+   button {
+      background: initial; 
+      justify-content: end;
+      margin-inline-start: auto;
+   }
+}
+
+
+.lightbox__buttons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: -5%;
+  width: 110%;
+  top: 45%;
+}
+
+}

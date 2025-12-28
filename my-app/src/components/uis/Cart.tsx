@@ -1,8 +1,8 @@
 import  { useContext, useEffect, useRef, useState } from "react";
-import CartIcon from '../assets/images/icon-cart-dark.svg?react';
-import deleteUrl from '../assets/images/icon-delete.svg';
-import { ActionType, CartItem, myContext, priceInString } from "../service";
-import '../styles/Cart.less';
+import CartIcon from '@/assets/images/icon-cart-dark.svg?react';
+import DeleteIcon from '@/assets/images/icon-delete.svg?react';
+import { ActionType, CartItem, myContext, priceInString } from "@/service";
+import './Cart.less';
 import { useClickOutside } from "@/hooks/useClickOutside";
 
 
@@ -85,7 +85,7 @@ function Item({pictures, name, price, quantity, amount, id}:CartItem){
            <img className="item__image" src={pictures[0]} alt="product"/> 
            <h5 className="item__title">{name}</h5>
            <p className="item__amount">{`${priceInString(price)} x ${quantity}`}<span className="item__bold">{priceInString(amount)}</span></p>
-           <button className="item__delete" onClick={() =>handleClick(ActionType.reduce, id)}><img alt="delete" src={deleteUrl}/></button>
+           <button className="item__delete" onClick={() =>handleClick(ActionType.reduce, id)}><DeleteIcon/></button>
         </div>
     );
 }
