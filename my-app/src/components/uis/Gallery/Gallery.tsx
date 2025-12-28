@@ -72,9 +72,9 @@ function Gallery({pictures, active, pushActive, productName}:GalleryProps) {
                     handlePre={() => handleActive(ActionType.add)} 
                     activeIcon={<IconNextActive/>} primaryIcon={<IconNext/>}/>
                 </div>
-                <a className="gallery__mainPic"onClick={()=>{setOpenLightbox(true)}}>
+                <div className="gallery__mainPic"onClick={()=>{setOpenLightbox(true)}}>
                     <img src={mainImg} alt={productName}/>
-                </a>
+                </div>
             </div>
             <div className="gallery__thumbnails">
                 {thumbnails}
