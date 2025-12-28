@@ -6,7 +6,7 @@ import product2 from '../assets/images/image-product-2.jpg';
 import product3 from '../assets/images/image-product-3.jpg';
 import product4 from '../assets/images/image-product-4.jpg';
 import { ProductProps } from "../service";
-import Gallery from "./Gallery";
+import Gallery from "./uis/Gallery/Gallery";
 
 
 

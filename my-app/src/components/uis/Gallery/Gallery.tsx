@@ -1,12 +1,12 @@
 
-import { ActionType } from '../service';
-import '../styles/Gallery.less';
-import iconNext from '../assets/images/icon-next.svg';
-import iconNextActive from '../assets/images/icon-next-active.svg'
-import iconPreActive from '../assets/images/icon-previous-active.svg';
-import iconPre from '../assets/images/icon-previous.svg';
-import iconClose from '../assets/images/icon-close-light.svg';
-import iconCloseActive from '../assets/images/icon-close-active.svg';
+import { ActionType } from '@/service';
+import './Gallery.less';
+import iconNext from '@/assets/images/icon-next.svg';
+import iconNextActive from '@/assets/images/icon-next-active.svg'
+import iconPreActive from '@/assets/images/icon-previous-active.svg';
+import iconPre from '@/assets/images/icon-previous.svg';
+import iconClose from '@/assets/images/icon-close-light.svg';
+import iconCloseActive from '@/assets/images/icon-close-active.svg';
 
 import { useState } from 'react';
 
