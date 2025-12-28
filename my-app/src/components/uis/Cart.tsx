@@ -1,8 +1,8 @@
 import  { useContext, useEffect, useRef, useState } from "react";
-import CartIcon from '../assets/images/icon-cart-dark.svg?react';
-import deleteUrl from '../assets/images/icon-delete.svg';
-import { ActionType, CartItem, myContext, priceInString } from "../service";
-import '../styles/Cart.less';
+import CartIcon from '@/assets/images/icon-cart-dark.svg?react';
+import deleteUrl from '@/assets/images/icon-delete.svg';
+import { ActionType, CartItem, myContext, priceInString } from "@/service";
+import './Cart.less';
 import { useClickOutside } from "@/hooks/useClickOutside";
 
 
