@@ -17,11 +17,6 @@ export interface Props {
 function Gallery({pictures, productName}:Props) {
     const [activePic, setActivePic] = useState(0);
 
-    
-    const thumbnails = pictures.map((picture, index) => {
-        return <Thumbnail currentPath={picture} key={productName + index} name={productName+index} handleCurrent={()=> setActivePic(index)} active={activePic} current={index}/>
-    })
-
     const handleActivePic = (action: "pre" | "next") =>  {
         if(action === "next"){
             if(activePic < pictures.length-1){
@@ -34,8 +29,10 @@ function Gallery({pictures, productName}:Props) {
             }
         }
     }
-
-
+    
+    const thumbnails = pictures.map((picture, index) => {
+        return <Thumbnail currentPath={picture} key={productName + index} name={productName+index} handleCurrent={()=> setActivePic(index)} active={activePic} current={index}/>
+    })
 
     return (<>
         <div className="gallery">
