@@ -39,12 +39,12 @@ function Gallery({pictures, productName}:Props) {
             <div className="gallery__main">
                 <div className='gallery__buttons'>
                     <Button 
-                    handlePre={() => handleActivePic("pre")} 
+                    onClick={() => handleActivePic("pre")} 
                     activeIcon={<IconPreActive/>} 
                     primaryIcon={<IconPre/>}
                     />
                     <Button 
-                    handlePre={() => handleActivePic("next")} 
+                    onClick={() => handleActivePic("next")} 
                     activeIcon={<IconNextActive/>} primaryIcon={<IconNext/>}/>
                 </div>
                 <div className="gallery__mainPic"onClick={()=>{}}>

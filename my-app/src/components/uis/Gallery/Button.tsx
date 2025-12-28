@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 interface Props {
-    handlePre: () => void
+    onClick: () => void
     activeIcon: JSX.Element
     primaryIcon: JSX.Element
 }
@@ -11,7 +11,7 @@ const Button = (props: Props) => {
     return (
         <button 
         className="gallery__button"
-        onClick={props.handlePre}
+        onClick={props.onClick}
         onMouseUp={()=>setActive(false)}
         onMouseDown={()=>setActive(true)}
         >
