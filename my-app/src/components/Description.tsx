@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import '../styles/Description.less';
-import push from '../assets/images/icon-plus.svg';
-import minus from '../assets/images/icon-minus.svg';
-import cart from '../assets/images/icon-cart-light.svg';
+import IconPush from '@/assets/images/icon-plus.svg?react';
+import IconMinus from '@/assets/images/icon-minus.svg?react';
+import IconCart from '@/assets/images/icon-cart-light.svg?react';
 import {ActionType, CartItem, myContext } from '../service';
 import { discountInString, priceInString, rawprice } from '@/services/utils';
 
@@ -34,11 +34,6 @@ function Description({...props}: Props){
         setQuantity(0);
     }
 
-    const iconsUrl= {
-        add: push,
-        reduce: minus,
-        cart: cart,
-    }
     const pushItem = useContext(myContext)!.handle;
 
     const handleClick = () => {
@@ -70,12 +65,17 @@ function Description({...props}: Props){
             </div>
             <div className='description__controller'>
                 <div className='description__quantity'>
-                    <button onClick={reduceQuantity} className='description__reduce'><img alt="reduce" src={iconsUrl.reduce}/></button>
+                    <button onClick={reduceQuantity} className='description__reduce'>
+                        <IconMinus />
+                    </button>
                     <span>{quantity}</span>
-                    <button onClick={addQuantity}><img alt="add" src={iconsUrl.add}/></button>
+                    <button onClick={addQuantity}>
+                        <IconPush />
+                    </button>
                 </div>
                 <div className='description__cart' role='button' onClick={handleClick}>
-                  <img alt="" src={iconsUrl.cart}/><span>Add to cart</span>
+                  <IconCart />
+                  <span>Add to cart</span>
                 </div>
 
             </div> 
