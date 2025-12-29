@@ -3,14 +3,23 @@ import '../styles/Description.less';
 import push from '../assets/images/icon-plus.svg';
 import minus from '../assets/images/icon-minus.svg';
 import cart from '../assets/images/icon-cart-light.svg';
-import { Action, ActionType, CartItem, ProductProps, myContext } from '../service';
+import { Action, ActionType, CartItem, myContext } from '../service';
 import { discountInString, priceInString, rawprice } from '@/services/utils';
 
+interface Props {
+    brand: string,
+    name: string,
+    description: string,
+    price: number,
+    discount: number,
+    id: number,
+    pictures: string[],
+}
 
 interface DescriptionState {
     quantity: number,
 }
-function Description({...props}: ProductProps){
+function Description({...props}: Props){
     const {brand, name, description, price, discount, id} = props;
 
     function reducer(state: DescriptionState, action: Action):DescriptionState {
