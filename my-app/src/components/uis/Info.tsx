@@ -73,10 +73,10 @@ function Info({...props}: Props){
                         <IconPush />
                     </button>
                 </div>
-                <div className='info__cart' role='button' onClick={handleClick}>
+                <button className='info__cart' onClick={handleClick}>
                   <IconCart />
                   <span>Add to cart</span>
-                </div>
+                </button>
 
             </div> 
         </div>
