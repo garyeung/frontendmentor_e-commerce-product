@@ -1,5 +1,5 @@
 import '../styles/Product.less';
-import Description from "./uis/Description";
+import Info from "./uis/Description";
 import product1 from '../assets/images/image-product-1.jpg';
 import product2 from '../assets/images/image-product-2.jpg';
 import product3 from '../assets/images/image-product-3.jpg';
@@ -27,7 +27,7 @@ function Product(){
     <div className="product">
         <Gallery pictures={product.pictures} productName={product.name}/>
 
-        <Description {...product} />
+        <Info {...product} />
     </div>
    ); 
 }

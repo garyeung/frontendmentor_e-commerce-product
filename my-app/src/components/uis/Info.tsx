@@ -16,7 +16,7 @@ interface Props {
     pictures: string[],
 }
 
-function Description({...props}: Props){
+function Info({...props}: Props){
     const {brand, name, description, price, discount, id} = props;
     const [quantity, setQuantity] = useState(0);
 
@@ -84,4 +84,4 @@ function Description({...props}: Props){
     );
 }
 
-export default Description;
+export default Info;
