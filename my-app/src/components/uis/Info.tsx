@@ -50,22 +50,22 @@ function Info({...props}: Props){
     }
 
     return (
-        <div className='description'>
-            <span className='description__brand'>{brand}</span>      
-            <h1 className='description__name'>{name}</h1>
-            <p className='description__text'>{description}</p>
-            <div className='description__amount'>
-              <div className='description__left'>
-                  <span className='description__price'>{priceInString(price)}</span>
-                  <span className='description__discount'>{discountInString(discount)}</span>
+        <div className='info'>
+            <span className='info__brand'>{brand}</span>      
+            <h1 className='info__name'>{name}</h1>
+            <p className='info__text'>{description}</p>
+            <div className='info__amount'>
+              <div className='info__left'>
+                  <span className='info__price'>{priceInString(price)}</span>
+                  <span className='info__discount'>{discountInString(discount)}</span>
               </div>
-              <div className='description__right'>
-               <del className='description__rawprice'>{rawprice(price,discount)}</del>
+              <div className='info__right'>
+               <del className='info__rawprice'>{rawprice(price,discount)}</del>
               </div>
             </div>
-            <div className='description__controller'>
-                <div className='description__quantity'>
-                    <button onClick={reduceQuantity} className='description__reduce'>
+            <div className='info__controller'>
+                <div className='info__quantity'>
+                    <button onClick={reduceQuantity} className='info__reduce'>
                         <IconMinus />
                     </button>
                     <span>{quantity}</span>
@@ -73,7 +73,7 @@ function Info({...props}: Props){
                         <IconPush />
                     </button>
                 </div>
-                <div className='description__cart' role='button' onClick={handleClick}>
+                <div className='info__cart' role='button' onClick={handleClick}>
                   <IconCart />
                   <span>Add to cart</span>
                 </div>
