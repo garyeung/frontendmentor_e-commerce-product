@@ -55,11 +55,11 @@ function Info({...props}: Props){
             <h1 className='info__name'>{name}</h1>
             <p className='info__description'>{description}</p>
             <div className='info__amount'>
-              <div className='info__left'>
+              <div className='info__amountPart'>
                   <span className='info__price'>{priceInString(price)}</span>
                   <span className='info__discount'>{discountInString(discount)}</span>
               </div>
-              <div className='info__right'>
+              <div className='info__amountPart'>
                <del className='info__rawprice'>{rawprice(price,discount)}</del>
               </div>
             </div>
