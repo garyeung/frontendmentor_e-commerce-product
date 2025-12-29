@@ -44,7 +44,7 @@ function Description({...props}: Props){
         setQuantity(quantity+1);
     }
 
-    const dropQuantity = () => {
+    const reduceQuantity = () => {
         if(quantity > 0){
             setQuantity(quantity-1);
         }
@@ -66,7 +66,7 @@ function Description({...props}: Props){
             </div>
             <div className='description__controller'>
                 <div className='description__quantity'>
-                    <button onClick={dropQuantity} className='description__reduce'><img alt="reduce" src={iconsUrl.reduce}/></button>
+                    <button onClick={reduceQuantity} className='description__reduce'><img alt="reduce" src={iconsUrl.reduce}/></button>
                     <span>{quantity}</span>
                     <button onClick={addQuantity}><img alt="add" src={iconsUrl.add}/></button>
                 </div>
