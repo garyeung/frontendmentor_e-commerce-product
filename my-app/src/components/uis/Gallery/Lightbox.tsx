@@ -6,7 +6,8 @@ import IconClose from '@/assets/images/icon-close-light.svg?react';
 import IconCloseActive from '@/assets/images/icon-close-active.svg?react';
 import Button from "./Button";
 import Thumbnail from "./Thumbnail";
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { useClickOutside } from '@/hooks/useClickOutside';
 
 
 
@@ -19,6 +20,12 @@ interface Props {
 
 const Lightbox = ({pictures, productName, startIndex, handleClose}:Props) => {
     const [activePic, setActivePic] = useState(startIndex);
+
+    const lightboxRef = useRef<HTMLDivElement>(null);
+
+    useClickOutside(lightboxRef, () => {
+        handleClose();
+    });
 
     const handleActivePic = (action: "pre" | "next") =>  {
         if(action === "next"){
@@ -40,7 +47,7 @@ const Lightbox = ({pictures, productName, startIndex, handleClose}:Props) => {
 
     return (
         <div className="lightbox__wrapper">
-          <div className="lightbox">
+          <div className="lightbox" ref={lightboxRef}>
               <div className="lightbox__closeBoard">
                 <Button onClick={handleClose} activeIcon={<IconCloseActive/>} primaryIcon={<IconClose/>}/>
               </div>

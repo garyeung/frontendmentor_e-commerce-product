@@ -1,27 +1,32 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Nav from "./Nav";
-import closeUrl from '../assets/images/icon-close.svg';
-import menuUrl from '../assets/images/icon-menu.svg';
+import IconClose from '@/assets/images/icon-close.svg?react';
+import IconMenu from '@/assets/images/icon-menu.svg?react';
 import '../styles/Menu.less';
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 function Menu(){
-    const [isOpen, setIsOpen] = useState(false);
+    const [open, setOpen] = useState(false);
+    const menuBoardRef = useRef<HTMLDivElement>(null);
+
+    useClickOutside(menuBoardRef, () => setOpen(false));
 
     return (
-        <>
-        <button className="menu__button" onClick={() => {setIsOpen(true)}}>
-            <img src={menuUrl} alt="menu" />
-        </button>
-        <div className={`menu__board ${isOpen? "menu__board--open": ""}`}>
-            <div className="menu__closeboard">
-            <button className="menu__close" onClick={() => setIsOpen(false)}>
-                <img src={closeUrl} alt="close"/>
-            </button>
+        <div className="menu">
+          <button className="menu__button" onClick={() => {setOpen(true)}}>
+            <IconMenu />
+          </button>
+          <div className={`menu__boardwrapper ${open? "menu__boardwrapper--open": ""}`}>
+            <div className={`menu__board`} ref={menuBoardRef}>
+                <div className="menu__closeboard">
+                  <button className="menu__close" onClick={() => setOpen(false)}>
+                    <IconClose />
+                  </button>
+                </div>
+                <Nav />
             </div>
-            <Nav />
-            <div className="menu__grayboard"></div>
+          </div>
         </div>
-        </>
     );
 }
 

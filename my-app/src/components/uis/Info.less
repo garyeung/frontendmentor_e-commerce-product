@@ -1,9 +1,9 @@
-.description {
+.info {
     margin: @mobile-space;
     margin-bottom: @desktop-space;
 }
 
-.description__brand {
+.info__brand {
     color: @orange;
     text-transform: uppercase;
     font-weight: @font-b;
@@ -11,26 +11,26 @@
     font-size: 0.7rem;
 }
 
-.description__name {
+.info__name {
     text-transform: capitalize;
     font-size: 1.8rem;
     line-height: 1;
     margin: @mobile-space auto;
 }
 
-.description__text {
+.info__description {
     color: @dark-grayish-blue;
     line-height: 1.5;
     margin: @mobile-space*1.5 auto;
 }
 
-.description__price {
+.info__price {
     font-size: 1.8rem;
     font-weight: @font-b;
 }
 
 
-.description__discount {
+.info__discount {
     color: @orange;
     font-weight: @font-b;
     margin: 0 @mobile-space;
@@ -38,18 +38,18 @@
     background: @pale-orange;
     border-radius: @border-r;
 }
-.description__amount {
+.info__amount {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
 }
 
-.description__rawprice {
+.info__rawprice {
     color: @grayish-blue;
     font-weight: @font-b;
 }
 
-.description__quantity {
+.info__quantity {
     background-color: @light-grayish-blue;
     display: flex;
     justify-content: space-between;
@@ -59,20 +59,18 @@
     font-weight: @font-b;
     margin: @mobile-space*1.5 auto;
 
-    button {
-        :active{
+    button:active {
             opacity: 0.5;
-        }
     }
 }
 
-.description__reduce{
+.info__reduce{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.description__cart {
+.info__cart {
     color: @white;
     background: @orange;
     font-weight: @font-b;
@@ -83,47 +81,47 @@
     align-items: center;
     gap: @mobile-space;
     box-shadow: 0px @mobile-space*1.5 @mobile-space*1.5 @pale-orange;
-
-    img {
-        width: 20px;
-    }
-}
-.description__cart:hover {
+    width: 100%;
+    height: initial;
     cursor: pointer;
+
 }
-.description__cart:active {
+
+.info__cart:active {
     opacity: 0.5;
 
 }
 
 
 @media screen and (min-width: @mobile-width) {
-    .description__amount {
+    .info__amount {
       flex-direction: column;
       row-gap: @mobile-space*0.5;
     }
 
-    .description__controller {
+    .info__controller {
       display: flex;
       column-gap: @mobile-space;
       padding: @mobile-space*2 0;
     }
 
-    .description__quantity {
+    .info__quantity {
       margin: 0;
       width: 112px;
       padding: 0 @mobile-space;
     }
 
-    .description__cart {
+    .info__cart {
       width: 240px;
     }
 
-    .description__name {
+    .info__name {
       font-size: 2.5rem;
     }
 
-    .description {
-        margin: @mobile-space;
+    .info {
+        display: flex;
+        flex-flow: column;
+        margin: 0;
     }
 }

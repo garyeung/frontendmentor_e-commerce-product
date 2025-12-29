@@ -1,27 +1,31 @@
-.menu__board{
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: -999%;
-  z-index: 2;
-  display: grid; 
-  grid-template-columns: 1.4fr 0.6fr; 
-  grid-template-rows: 0.2fr 1.8fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    "close grayboard"
-    "nav grayboard"; 
+.menu__boardwrapper {
+    top: 0;
+    left: -100%;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: initial;
+    transition: background-color 300ms cubic-bezier(.65,.05,.36,1); 
 
-  transition: left 0.2s cubic-bezier(.65,.05,.36,1);
+}
+
+.menu__board{
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+  transition: left 150ms cubic-bezier(.65,.05,.36,1);
     
     .nav{
+        height: 100%;
         display: flex;
-        grid-area: nav;
         flex-direction: column;
         background-color: @white;
         justify-content: flex-start;
-        gap: 16px;
+        gap: @mobile-space;
         padding: @mobile-space;
 
         .nav__link{
@@ -32,12 +36,6 @@
     }
 }
 
-.menu__grayboard {
-    grid-area: grayboard;
-    background-color: @black-lightbox;
-    width: 0;
-    transition: width 0.25s cubic-bezier(.65,.05,.36,1); 
-}
 .menu__closeboard {
     display: block;
     grid-area: close;
@@ -45,16 +43,19 @@
     padding: @mobile-space;
 }
 
-.menu__board--open{
-    left: 0;
 
-    .menu__grayboard {
-        width: 100%;
+.menu__boardwrapper--open {
+    left: 0;
+    background-color: @black-lightbox;
+
+    .menu__board{
+        left: 0;
     }
+
 }
 
 @media screen and (min-width: @mobile-width) {
-   .menu__button {
+   .menu {
     display: none;
    }
 }
