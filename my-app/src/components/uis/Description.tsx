@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
-import '../styles/Description.less';
+import './Description.less';
 import IconPush from '@/assets/images/icon-plus.svg?react';
 import IconMinus from '@/assets/images/icon-minus.svg?react';
 import IconCart from '@/assets/images/icon-cart-light.svg?react';
-import {ActionType, CartItem, myContext } from '../service';
+import {ActionType, CartItem, myContext } from '../../service';
 import { discountInString, priceInString, rawprice } from '@/services/utils';
 
 interface Props {
