@@ -4,6 +4,7 @@ import push from '../assets/images/icon-plus.svg';
 import minus from '../assets/images/icon-minus.svg';
 import cart from '../assets/images/icon-cart-light.svg';
 import { Action, ActionType, CartItem, ProductProps, myContext } from '../service';
+import { discountInString, priceInString, rawprice } from '@/services/utils';
 
 
 interface DescriptionState {
@@ -63,27 +64,6 @@ function Description({...props}: ProductProps){
         }
         
     }
-    const priceInString = (price: number) => {
-       if(price){
-                return `$${price.toFixed(2)}`;
-       } 
-       else {
-        return 'Free';
-       }
-    }
-    const discountInString = (dis: number)=>{
-        if(dis == 0){return "";}
-        return dis*100 + '%';
-    }
-
-    const rawprice = (p: number, dis:number) => {
-        if(dis){
-            return priceInString(p/dis);
-        }
-        else{
-            return "";
-        }
-    };
 
     return (
         <div className='description'>
