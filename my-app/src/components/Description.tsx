@@ -20,6 +20,20 @@ function Description({...props}: Props){
     const {brand, name, description, price, discount, id} = props;
     const [quantity, setQuantity] = useState(0);
 
+    const addQuantity = ()=> {
+        setQuantity(quantity+1);
+    }
+
+    const reduceQuantity = () => {
+        if(quantity > 0){
+            setQuantity(quantity-1);
+        }
+    }
+
+    const resetQuantity = () => {
+        setQuantity(0);
+    }
+
     const iconsUrl= {
         add: push,
         reduce: minus,
@@ -36,17 +50,7 @@ function Description({...props}: Props){
                 amount: quantity*price
             } 
             pushItem(ActionType.add, id, item);
-        }
-    }
-
-
-    const addQuantity = ()=> {
-        setQuantity(quantity+1);
-    }
-
-    const reduceQuantity = () => {
-        if(quantity > 0){
-            setQuantity(quantity-1);
+            resetQuantity();
         }
     }
 
