@@ -8,20 +8,20 @@ function Menu(){
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <>
-        <button className="menu__button" onClick={() => {setIsOpen(true)}}>
-            <img src={menuUrl} alt="menu" />
-        </button>
-        <div className={`menu__board ${isOpen? "menu__board--open": ""}`}>
-            <div className="menu__closeboard">
-            <button className="menu__close" onClick={() => setIsOpen(false)}>
-                <img src={closeUrl} alt="close"/>
-            </button>
-            </div>
-            <Nav />
-            <div className="menu__grayboard"></div>
+        <div className="menu">
+          <button className="menu__button" onClick={() => {setIsOpen(true)}}>
+              <img src={menuUrl} alt="menu" />
+          </button>
+          <div className={`menu__board ${isOpen? "menu__board--open": ""}`}>
+              <div className="menu__closeboard">
+              <button className="menu__close" onClick={() => setIsOpen(false)}>
+                  <img src={closeUrl} alt="close"/>
+              </button>
+              </div>
+              <Nav />
+              <div className="menu__grayboard"></div>
+          </div>
         </div>
-        </>
     );
 }
 
