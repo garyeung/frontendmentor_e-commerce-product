@@ -1,9 +1,9 @@
-import { useContext, useReducer } from 'react';
+import { useContext, useState } from 'react';
 import '../styles/Description.less';
 import push from '../assets/images/icon-plus.svg';
 import minus from '../assets/images/icon-minus.svg';
 import cart from '../assets/images/icon-cart-light.svg';
-import { Action, ActionType, CartItem, myContext } from '../service';
+import {ActionType, CartItem, myContext } from '../service';
 import { discountInString, priceInString, rawprice } from '@/services/utils';
 
 interface Props {
@@ -16,30 +16,10 @@ interface Props {
     pictures: string[],
 }
 
-interface DescriptionState {
-    quantity: number,
-}
 function Description({...props}: Props){
     const {brand, name, description, price, discount, id} = props;
+    const [quantity, setQuantity] = useState(0);
 
-    function reducer(state: DescriptionState, action: Action):DescriptionState {
-        switch(action.type){
-            case ActionType.add:
-                return {
-                    quantity: state.quantity+1,
-                } 
-            case ActionType.reduce:
-                return {
-                    quantity: state.quantity-1,
-                }
-            default: 
-            throw Error('Unknown action: ' + action.type);
-        }
-    }
-    const initalState: DescriptionState = {
-        quantity: 0,
-    } 
-    const[state, dispatch] = useReducer(reducer, initalState);
     const iconsUrl= {
         add: push,
         reduce: minus,
@@ -48,12 +28,12 @@ function Description({...props}: Props){
     const pushItem = useContext(myContext)!.handle;
 
     const handleClick = () => {
-        if(state.quantity)
+        if(quantity)
         {
             const item: CartItem = {
                 ...props,
-                quantity: state.quantity,
-                amount: state.quantity*price
+                quantity: quantity,
+                amount: quantity*price
             } 
             pushItem(ActionType.add, id, item);
         }
@@ -61,17 +41,13 @@ function Description({...props}: Props){
 
 
     const addQuantity = ()=> {
-        dispatch({
-            type: ActionType.add
-        })
+        setQuantity(quantity+1);
     }
+
     const dropQuantity = () => {
-        if(state.quantity > 0){
-            dispatch({
-                type: ActionType.reduce
-            })
+        if(quantity > 0){
+            setQuantity(quantity-1);
         }
-        
     }
 
     return (
@@ -91,7 +67,7 @@ function Description({...props}: Props){
             <div className='description__controller'>
                 <div className='description__quantity'>
                     <button onClick={dropQuantity} className='description__reduce'><img alt="reduce" src={iconsUrl.reduce}/></button>
-                    <span>{state.quantity}</span>
+                    <span>{quantity}</span>
                     <button onClick={addQuantity}><img alt="add" src={iconsUrl.add}/></button>
                 </div>
                 <div className='description__cart' role='button' onClick={handleClick}>
