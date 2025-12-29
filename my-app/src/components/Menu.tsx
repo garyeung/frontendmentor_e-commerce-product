@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Nav from "./Nav";
-import closeUrl from '../assets/images/icon-close.svg';
-import menuUrl from '../assets/images/icon-menu.svg';
+import IconClose from '@/assets/images/icon-close.svg?react';
+import IconMenu from '@/assets/images/icon-menu.svg?react';
 import '../styles/Menu.less';
 
 function Menu(){
@@ -10,12 +10,12 @@ function Menu(){
     return (
         <div className="menu">
           <button className="menu__button" onClick={() => {setIsOpen(true)}}>
-              <img src={menuUrl} alt="menu" />
+            <IconMenu />
           </button>
           <div className={`menu__board ${isOpen? "menu__board--open": ""}`}>
               <div className="menu__closeboard">
               <button className="menu__close" onClick={() => setIsOpen(false)}>
-                  <img src={closeUrl} alt="close"/>
+                <IconClose />
               </button>
               </div>
               <Nav />
