@@ -5,17 +5,17 @@ import IconMenu from '@/assets/images/icon-menu.svg?react';
 import '../styles/Menu.less';
 
 function Menu(){
-    const [isOpen, setIsOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
     return (
         <div className="menu">
-          <button className="menu__button" onClick={() => {setIsOpen(true)}}>
+          <button className="menu__button" onClick={() => {setOpen(true)}}>
             <IconMenu />
           </button>
-          <div className={`menu__boardwrapper ${isOpen? "menu__boardwrapper--open": ""}`}>
+          <div className={`menu__boardwrapper ${open? "menu__boardwrapper--open": ""}`}>
             <div className={`menu__board`}>
                 <div className="menu__closeboard">
-                  <button className="menu__close" onClick={() => setIsOpen(false)}>
+                  <button className="menu__close" onClick={() => setOpen(false)}>
                     <IconClose />
                   </button>
                 </div>
