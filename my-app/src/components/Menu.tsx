@@ -12,8 +12,8 @@ function Menu(){
           <button className="menu__button" onClick={() => {setIsOpen(true)}}>
             <IconMenu />
           </button>
-          <div className="menu__boardwrapper">
-            <div className={`menu__board ${isOpen? "menu__board--open": ""}`}>
+          <div className={`menu__boardwrapper ${isOpen? "menu__boardwrapper--open": ""}`}>
+            <div className={`menu__board`}>
                 <div className="menu__closeboard">
                   <button className="menu__close" onClick={() => setIsOpen(false)}>
                     <IconClose />
