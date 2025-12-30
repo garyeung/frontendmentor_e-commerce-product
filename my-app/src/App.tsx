@@ -2,60 +2,42 @@ import { useReducer, } from 'react'
 import './App.less'
 import Header from './components/Header'
 import Product from './components/Product'
-import { ActionType, CartAction, CartItem,  myContext } from './service'
+import { ActionType, CartItemReducer } from './services/reducer'
+import { CartItemContext } from './services/context'
 
 function App() {
-  const initalCartItems: CartItem[] = [];
-  const [cartItems, dispatch] = useReducer(reducer, initalCartItems)
+  const [cartItems, dispatch] = useReducer(CartItemReducer, [])
 
-  const changeCartItems = (action: ActionType, id:number, item?: CartItem) => {
+  const addCartItem = (productId: number, quantity: number) => {
     dispatch({
-      type: action,
-      id: id,
-      payload: item,
+      type: ActionType.add,
+      id: productId,
+      quantity: quantity
+    
     })
   }
-  
-  function reducer(items: CartItem[], action: CartAction){
-    const updateItems = [...items];
-    const findItem = (n: number)=> {
-      return updateItems.findIndex((it)=> {
-        return it.id === n
-      })
-    }
-    const index = findItem(action.id)
-    switch (action.type){
-      case ActionType.add:
-          if(index !== -1){
-            updateItems[index] = action.payload!;
-          }
-          else{
-            updateItems.push(action.payload!)
-          }
-          break;
-      
-      case ActionType.reduce: 
-          if(index !== -1){
-            updateItems.splice(index, 1);
-          }
-          break;
-      default: 
-      throw Error('Unknown action: ' + action.type);
-     }
-    
-    return updateItems;
+
+  const delCartItem = (productId: number) => {
+    dispatch({
+      type: ActionType.del,
+      id: productId
+    })
   }
 
   return (
      
-      <myContext.Provider value={{data:cartItems, handle: changeCartItems}}>
-      <div className='container'>
-        <Header></Header>
-     <div className='main' role='main'>
-        <Product />
-     </div>
-    </div>
-      </myContext.Provider>
+      <CartItemContext.Provider value={{
+        value: cartItems,
+        add: addCartItem,
+        del: delCartItem
+      }}>
+        <div className='container'>
+          <Header></Header>
+          <div className='main' role='main'>
+            <Product />
+          </div>
+        </div>
+      </CartItemContext.Provider>
   )
 }
 
