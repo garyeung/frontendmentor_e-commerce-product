@@ -1,10 +1,10 @@
-import '@/components/Hearder.less';
-import Avatar from './atoms/Avatar';
-import Logo from './atoms/Logo';
-import avatarUrl from '../assets/images/image-avatar.png';
-import Nav from './Nav';
-import Menu from './Menu';
-import Cart from './uis/Cart';
+import '@/components/uis/Hearder.less';
+import Avatar from '@/components/atoms/Avatar';
+import Logo from '@/components/atoms/Logo';
+import avatarUrl from '@/assets/images/image-avatar.png';
+import Nav from '@/components/Nav';
+import Menu from '@/components/Menu';
+import Cart from '@/components/uis/Cart';
 
 function Header(){
 
