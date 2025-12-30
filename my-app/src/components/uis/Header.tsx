@@ -3,7 +3,7 @@ import Avatar from '@/components/atoms/Avatar';
 import Logo from '@/components/atoms/Logo';
 import avatarUrl from '@/assets/images/image-avatar.png';
 import Nav from '@/components/Nav';
-import Menu from '@/components/Menu';
+import Menu from '@/components/uis/Menu';
 import Cart from '@/components/uis/Cart';
 
 function Header(){

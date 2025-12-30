@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
-import Nav from "./Nav";
+import Nav from "@/components/Nav";
 import IconClose from '@/assets/images/icon-close.svg?react';
 import IconMenu from '@/assets/images/icon-menu.svg?react';
-import './Menu.less';
+import '@/components/uis/Menu.less';
 import { useClickOutside } from "@/hooks/useClickOutside";
 
 function Menu(){
