@@ -1,6 +1,6 @@
 import './Product.less';
 import Info from "@/components/uis/Info";
-import Gallery from "@/components/uis/Gallery";
+import Gallery from "@/components/uis/Product/Gallery";
 
 
 interface Props {
