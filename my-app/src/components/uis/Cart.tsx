@@ -1,13 +1,17 @@
 import  { useContext, useEffect, useRef, useState } from "react";
 import CartIcon from '@/assets/images/icon-cart-dark.svg?react';
-import DeleteIcon from '@/assets/images/icon-delete.svg?react';
-import { ActionType, CartItem, myContext, priceInString } from "@/service";
 import './Cart.less';
 import { useClickOutside } from "@/hooks/useClickOutside";
+import { CartItemContext } from "@/services/context";
+import ICartItem from "@/interfaces/CartItem";
+import Checkout from "./Cart/Checkout";
+import Empty from "./Cart/Empty";
+import Item from "./Cart/Item";
+import { getProductInStore } from "@/services/store";
 
 
 function Cart(){
-    const cart = useContext(myContext);
+    const cartItems = useContext(CartItemContext)!.value;
     const [active, setActive] = useState(false);
     const [itemsCount, setItemsCount] = useState(0);
     const cartRef = useRef<HTMLDivElement>(null);
@@ -17,39 +21,49 @@ function Cart(){
     })
 
     useEffect(() => {
-     if(cart!.data.length !== 0){
-         setItemsCount(counting(cart!.data));
+     if(cartItems.length !== 0){
+         setItemsCount(counting(cartItems));
      }
      else {
          setItemsCount(0);
      }
-    }, [cart]) 
+    }, [cartItems]) 
 
     const handleActive = () => {
         setActive(!active);
     }
 
-    function counting(items: CartItem[]){
+    function counting(items: ICartItem[]){
         let count = 0;
         items.forEach((item) => {
             count += item.quantity;
         })
         return count;
     }
-    const ListCartItem = (Items: CartItem[],) => {
+    const ListCartItem = (Items: ICartItem[],) => {
         
     return <ul className="cart__items">{   
         Items.map( (item, index) => {
+            const product = getProductInStore(item.id)
+            if(product === null){
+                return null;
+            }
             return (
             <li key={index+item.id}>
-             <Item {...item}/>
+             <Item 
+             picture={product.pictures[0]}
+             name={product.name}
+             price={product.price}
+             quantity={item.quantity}
+             id={item.id}
+             />
             </li>
             );
         })
     }</ul>
     }
 
-    const itemList = ListCartItem(cart!.data);
+    const itemList = ListCartItem(cartItems);
 
     return (
         <div className="cart" ref={cartRef}>
@@ -64,7 +78,7 @@ function Cart(){
             <div className="cart__content">
             {
                 itemsCount === 0?
-                <EmptyCart/>
+                <Empty/>
                 :
                 <>
                  {itemList}
@@ -75,34 +89,6 @@ function Cart(){
           </div>
         </div>
     );
-}
-
-function Item({pictures, name, price, quantity, amount, id}:CartItem){
-    const handleClick = useContext(myContext)!.handle;
-
-    return(
-        <div className="cart__item">
-           <img className="item__image" src={pictures[0]} alt="product"/> 
-           <h5 className="item__title">{name}</h5>
-           <p className="item__amount">{`${priceInString(price)} x ${quantity}`}<span className="item__bold">{priceInString(amount)}</span></p>
-           <button className="item__delete" onClick={() =>handleClick(ActionType.reduce, id)}><DeleteIcon/></button>
-        </div>
-    );
-}
-
-function Checkout() {
-    const checkout = () =>{
-        //sample
-    };
-
-    return (<button className="cart__checkout" onClick={checkout}>Checkout</button>);
-
-
-}
-
-function EmptyCart(){
-
-    return (<p className="cart__empty">Your cart is empty.</p>);
 }
 
 export default Cart;
