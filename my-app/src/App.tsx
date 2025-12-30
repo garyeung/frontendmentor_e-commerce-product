@@ -4,10 +4,16 @@ import Header from '@/components/Header'
 import Product from '@/components/Product'
 import { ActionType, CartItemReducer } from '@/services/reducer'
 import { CartItemContext } from '@/services/context'
-import { getCartItemsInStorage } from '@/services/store'
+import { getCartItemsInStorage, getProductInStore } from '@/services/store'
 
 function App() {
   const [cartItems, dispatch] = useReducer(CartItemReducer, [], getCartItemsInStorage)
+  const sampleProduct = getProductInStore(1);
+
+  if(sampleProduct === null) {
+    console.error("Sample product not found");
+    return null;
+  }
 
   const addCartItem = (productId: number, quantity: number) => {
     dispatch({
@@ -35,7 +41,7 @@ function App() {
         <div className='container'>
           <Header></Header>
           <div className='main' role='main'>
-            <Product />
+            <Product product={sampleProduct} />
           </div>
         </div>
       </CartItemContext.Provider>
