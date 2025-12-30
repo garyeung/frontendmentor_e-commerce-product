@@ -1,27 +1,19 @@
 import './Product.less';
 import Info from "@/components/uis/Info";
-import product1 from '../assets/images/image-product-1.jpg';
-import product2 from '../assets/images/image-product-2.jpg';
-import product3 from '../assets/images/image-product-3.jpg';
-import product4 from '../assets/images/image-product-4.jpg';
-import { ProductProps } from "../service";
 import Gallery from "@/components/uis/Gallery";
 
 
+interface Props {
+    id: number,
+    name: string,
+    brand: string,
+    description: string,
+    price: number,
+    discount: number,
+    pictures: string[]
+}
 
-function Product(){
-    const product: ProductProps = {
-        id: 1,
-        name: 'Fall Limited Edition Sneakers',
-        brand: 'Sneaker Company',
-        description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
-        price: 125, 
-        discount: 0.5,
-        pictures: [product1,product2,product3, product4],
-
-
-    } 
-
+function Product({product}: {product: Props}){
 
    return (
     <div className="product">
