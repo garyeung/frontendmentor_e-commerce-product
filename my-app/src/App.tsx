@@ -1,10 +1,10 @@
 import { useReducer, } from 'react'
-import './App.less'
-import Header from './components/Header'
-import Product from './components/Product'
-import { ActionType, CartItemReducer } from './services/reducer'
-import { CartItemContext } from './services/context'
-import { getCartItemsInStorage } from './services/store'
+import '@/App.less'
+import Header from '@/components/Header'
+import Product from '@/components/Product'
+import { ActionType, CartItemReducer } from '@/services/reducer'
+import { CartItemContext } from '@/services/context'
+import { getCartItemsInStorage } from '@/services/store'
 
 function App() {
   const [cartItems, dispatch] = useReducer(CartItemReducer, [], getCartItemsInStorage)
