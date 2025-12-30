@@ -4,9 +4,10 @@ import Header from './components/Header'
 import Product from './components/Product'
 import { ActionType, CartItemReducer } from './services/reducer'
 import { CartItemContext } from './services/context'
+import { getCartItemsInStorage } from './services/store'
 
 function App() {
-  const [cartItems, dispatch] = useReducer(CartItemReducer, [])
+  const [cartItems, dispatch] = useReducer(CartItemReducer, [], getCartItemsInStorage)
 
   const addCartItem = (productId: number, quantity: number) => {
     dispatch({
