@@ -45,9 +45,9 @@ function App() {
       }}>
         <div className='container'>
           <Header></Header>
-          <div className='main' role='main'>
+          <main className='main'>
             <Product product={sampleProduct} />
-          </div>
+          </main>
         </div>
       </CartItemContext.Provider>
   )
