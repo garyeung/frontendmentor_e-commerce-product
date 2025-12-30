@@ -4,7 +4,7 @@ import Logo from '@/components/atoms/Logo';
 import avatarUrl from '@/assets/images/image-avatar.png';
 import Nav from '@/components/Nav';
 import Menu from '@/components/Menu';
-import Cart from '@/components/uis/Cart/Cart';
+import Cart from '@/components/uis/Cart';
 
 function Header(){
 

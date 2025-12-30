@@ -1,6 +1,6 @@
 import  { useContext, useEffect, useRef, useState } from "react";
 import CartIcon from '@/assets/images/icon-cart-dark.svg?react';
-import '@/components/uis/Cart/Cart.less';
+import '@/components/uis/Cart/index.less';
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { CartItemContext } from "@/services/context";
 import ICartItem from "@/interfaces/CartItem";
