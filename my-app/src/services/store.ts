@@ -38,7 +38,7 @@ export const setCarItemsInStorage = (carItems: ICartItem[]) => {
     }
 }
 
-export const getProduct = (id: number):IProduct|null => {
+export const getProductInStore = (id: number):IProduct|null => {
         const result = productStore.find(p => p.id === id)
         if(result) {
             return result;
