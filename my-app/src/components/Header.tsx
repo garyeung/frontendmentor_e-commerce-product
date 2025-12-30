@@ -1,4 +1,4 @@
-import '../styles/Hearder.less';
+import '@/components/Hearder.less';
 import Avatar from './atoms/Avatar';
 import Logo from './atoms/Logo';
 import avatarUrl from '../assets/images/image-avatar.png';
