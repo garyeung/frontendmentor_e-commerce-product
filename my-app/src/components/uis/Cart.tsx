@@ -44,18 +44,18 @@ function Cart(){
         
     return <ul className="cart__items">{   
         Items.map( (item, index) => {
-            const product = getProductInStore(item.id)
+            const product = getProductInStore(item.productID)
             if(product === null){
                 return null;
             }
             return (
-            <li key={index+item.id}>
+            <li key={index+item.productID}>
              <Item 
              picture={product.pictures[0]}
              name={product.name}
              price={product.price}
              quantity={item.quantity}
-             id={item.id}
+             id={item.productID}
              />
             </li>
             );

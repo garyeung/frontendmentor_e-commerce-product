@@ -15,7 +15,7 @@ export const CartItemReducer = (items: ICartItem[], action: CartAction) => {
     const updateItems = [...items];
     const findItem = (n: number)=> {
       return updateItems.findIndex((it)=> {
-        return it.id === n
+        return it.productID === n
       })
     }
     const index = findItem(action.id)
@@ -29,7 +29,7 @@ export const CartItemReducer = (items: ICartItem[], action: CartAction) => {
               } 
             }
             else{
-              updateItems.push({id: action.id, quantity: action.quantity})
+              updateItems.push({productID: action.id, quantity: action.quantity})
             }
         }
           break;
