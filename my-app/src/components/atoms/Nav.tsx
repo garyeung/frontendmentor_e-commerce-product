@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './Nav.less';
+import '@/components/atoms/Nav.less';
 
 export interface Navlink {
     name: string,
