@@ -1,7 +1,7 @@
 import { useEffect, useReducer, } from 'react'
 import '@/App.less'
 import Header from '@/components/uis/Header'
-import Product from '@/components/uis/Product/Product'
+import Product from '@/components/uis/Product'
 import { ActionType, CartItemReducer } from '@/services/reducer'
 import { CartItemContext } from '@/services/context'
 import { getCartItemsInStorage, getProductInStore, setCarItemsInStorage } from '@/services/store'

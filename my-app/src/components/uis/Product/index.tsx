@@ -1,4 +1,4 @@
-import './Product.less';
+import './index.less';
 import Info from "@/components/uis/Product/Info";
 import Gallery from "@/components/uis/Product/Gallery";
 
