@@ -1,5 +1,5 @@
 import './Product.less';
-import Info from "@/components/uis/Info";
+import Info from "@/components/uis/Product/Info";
 import Gallery from "@/components/uis/Product/Gallery";
 
 
