@@ -1,4 +1,4 @@
-import '../styles/Product.less';
+import './Product.less';
 import Info from "./uis/Info";
 import product1 from '../assets/images/image-product-1.jpg';
 import product2 from '../assets/images/image-product-2.jpg';
