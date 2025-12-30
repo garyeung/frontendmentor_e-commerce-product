@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import Nav from "@/components/Nav";
+import Nav from "@/components/atoms/Nav";
 import IconClose from '@/assets/images/icon-close.svg?react';
 import IconMenu from '@/assets/images/icon-menu.svg?react';
 import '@/components/uis/Menu.less';

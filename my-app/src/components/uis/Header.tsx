@@ -2,7 +2,7 @@ import '@/components/uis/Hearder.less';
 import Avatar from '@/components/atoms/Avatar';
 import Logo from '@/components/atoms/Logo';
 import avatarUrl from '@/assets/images/image-avatar.png';
-import Nav from '@/components/Nav';
+import Nav from '@/components/atoms/Nav';
 import Menu from '@/components/uis/Menu';
 import Cart from '@/components/uis/Cart';
 
