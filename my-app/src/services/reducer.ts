@@ -21,12 +21,17 @@ export const CartItemReducer = (items: ICartItem[], action: CartAction) => {
     const index = findItem(action.id)
     switch (action.type){
       case ActionType.add:
-          if(index !== -1){
-            updateItems[index].quantity = action.quantity!;
-          }
-          else{
-            updateItems.push({id: action.id, quantity: action.quantity!})
-          }
+          if(action.quantity){
+            if(index !== -1){
+              updateItems[index] = {
+                ...updateItems[index],
+                quantity: updateItems[index].quantity + action.quantity
+              } 
+            }
+            else{
+              updateItems.push({id: action.id, quantity: action.quantity})
+            }
+        }
           break;
       
       case ActionType.reduce: 
