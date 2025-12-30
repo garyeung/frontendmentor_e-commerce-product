@@ -10,12 +10,12 @@ function Header(){
 
     return (
         <header role='header' className="header">
-            <div className='header__left header__item'>
+            <div className='header__item'>
                 <Menu />
                 <Logo/>
                 <Nav />
             </div>
-            <div className='header__right header__item'>
+            <div className='header__item'>
                 <Cart />
                <Avatar avatarUrl={avatarUrl}></Avatar>
 
