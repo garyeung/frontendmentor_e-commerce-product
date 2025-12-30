@@ -9,7 +9,7 @@ import Cart from '@/components/uis/Cart';
 function Header(){
 
     return (
-        <header role='header' className="header">
+        <header className="header">
             <div className='header__item'>
                 <Menu />
                 <Logo/>
