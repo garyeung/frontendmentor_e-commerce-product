@@ -15,7 +15,7 @@ function Header(){
                 <Logo/>
                 <Nav />
             </div>
-            <div className='header__item'>
+            <div className='header__item header__item--end'>
                 <Cart />
                <Avatar avatarUrl={avatarUrl}></Avatar>
 
