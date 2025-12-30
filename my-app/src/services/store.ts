@@ -1,5 +1,5 @@
-import IProduct from "../interfaces/Product";
-import ICartItem from "../interfaces/CartItem"
+import IProduct from "@/interfaces/Product";
+import ICartItem from "@/interfaces/CartItem"
 
 import product1 from '@/assets/images/image-product-1.jpg';
 import product2 from '@/assets/images/image-product-2.jpg';
