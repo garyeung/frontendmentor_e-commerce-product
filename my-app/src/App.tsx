@@ -1,19 +1,24 @@
-import { useReducer, } from 'react'
+import { useEffect, useReducer, } from 'react'
 import '@/App.less'
 import Header from '@/components/Header'
 import Product from '@/components/Product'
 import { ActionType, CartItemReducer } from '@/services/reducer'
 import { CartItemContext } from '@/services/context'
-import { getCartItemsInStorage, getProductInStore } from '@/services/store'
+import { getCartItemsInStorage, getProductInStore, setCarItemsInStorage } from '@/services/store'
 
 function App() {
   const [cartItems, dispatch] = useReducer(CartItemReducer, [], getCartItemsInStorage)
   const sampleProduct = getProductInStore(1);
 
+  useEffect(() => {
+    setCarItemsInStorage(cartItems);
+  }, [cartItems])
+
   if(sampleProduct === null) {
     console.error("Sample product not found");
     return null;
   }
+
 
   const addCartItem = (productId: number, quantity: number) => {
     dispatch({
