@@ -2,7 +2,7 @@ import ICartItem from "../interfaces/CartItem";
 
 export enum ActionType {
     add,
-    reduce
+    del
 }
 
 export interface CartAction {
@@ -34,7 +34,7 @@ export const CartItemReducer = (items: ICartItem[], action: CartAction) => {
         }
           break;
       
-      case ActionType.reduce: 
+      case ActionType.del: 
           if(index !== -1){
             updateItems.splice(index, 1);
           }
