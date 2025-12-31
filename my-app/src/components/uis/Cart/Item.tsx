@@ -16,10 +16,16 @@ export default function Item({picture, name, price, quantity, id}:ItemProps){
 
     return(
         <div className="cart__item">
-           <img className="item__image" src={picture} alt="product"/> 
-           <h5 className="item__title">{name}</h5>
-           <p className="item__amount">{`${priceInString(price)} x ${quantity}`}<span className="item__bold">{priceInString(price*quantity)}</span></p>
-           <button className="item__delete" onClick={() =>handleClick(id)}><DeleteIcon/></button>
+           <div className="cart__itemPart">
+             <img className="item__image" src={picture} alt="product"/> 
+           </div>
+           <div className="cart__itemPart">
+             <h5 className="item__title">{name}</h5>
+             <p className="item__amount">{`${priceInString(price)} x ${quantity}`}<span className="item__bold">{priceInString(price*quantity)}</span></p>
+           </div>
+           <div className="cart__itemPart">
+             <button className="item__delete" onClick={() =>handleClick(id)}><DeleteIcon/></button>
+           </div>
         </div>
     );
 }
