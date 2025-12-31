@@ -1,0 +1,27 @@
+import './index.less';
+import Info from "@/components/uis/Product/Info";
+import Gallery from "@/components/uis/Product/Gallery";
+
+
+interface Props {
+    id: number,
+    name: string,
+    brand: string,
+    description: string,
+    price: number,
+    discount: number,
+    pictures: string[]
+}
+
+function Product({product}: {product: Props}){
+
+   return (
+    <div className="product">
+        <Gallery pictures={product.pictures} productName={product.name}/>
+
+        <Info {...product} />
+    </div>
+   ); 
+}
+
+export default Product;

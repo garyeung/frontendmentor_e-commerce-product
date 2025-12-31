@@ -12,9 +12,8 @@
 
 @media screen and (min-width: @mobile-width) {
     .header {
-        border-bottom: 1px @light-grayish-blue solid;
-        padding-bottom: 4px;
-        height: @desktop-space*1.5;
+        border-bottom: 1px @divider-line solid;
+        height: 112px;
         margin: 0;
     }
    .header__item{
@@ -25,7 +24,11 @@
 
 @media screen and (min-width: @desktop-width) {
    .header__item{
-    gap: @mobile-space*4;
+    gap: 60px;
    } 
+
+   .header__item--end {
+    gap: 40px;
+   }
     
 }

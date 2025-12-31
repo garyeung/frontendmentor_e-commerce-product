@@ -3,8 +3,8 @@ import './Info.less';
 import IconPush from '@/assets/images/icon-plus.svg?react';
 import IconMinus from '@/assets/images/icon-minus.svg?react';
 import IconCart from '@/assets/images/icon-cart-light.svg?react';
-import {ActionType, CartItem, myContext } from '../../service';
 import { discountInString, priceInString, rawprice } from '@/services/utils';
+import { CartItemContext } from '@/services/context';
 
 interface Props {
     brand: string,
@@ -34,17 +34,12 @@ function Info({...props}: Props){
         setQuantity(0);
     }
 
-    const pushItem = useContext(myContext)!.handle;
+    const addItem = useContext(CartItemContext)!.add;
 
     const handleClick = () => {
         if(quantity)
         {
-            const item: CartItem = {
-                ...props,
-                quantity: quantity,
-                amount: quantity*price
-            } 
-            pushItem(ActionType.add, id, item);
+            addItem(id, quantity);
             resetQuantity();
         }
     }

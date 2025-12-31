@@ -1,5 +1,5 @@
 interface ICartItem {
-    id: number,
+    productID: number,
     quantity: number,
 }
 

@@ -4,33 +4,39 @@
 }
 
 .info__brand {
+    display: block;
     color: @orange;
     text-transform: uppercase;
     font-weight: @font-b;
     letter-spacing: 2px;
-    font-size: 0.7rem;
+    font-size: 13px;
+    margin-bottom: 24px;
 }
 
 .info__name {
     text-transform: capitalize;
     font-size: 1.8rem;
     line-height: 1;
-    margin: @mobile-space auto;
+    font-weight: @font-b;
+    margin-bottom: 32px;
 }
 
 .info__description {
     color: @dark-grayish-blue;
-    line-height: 1.5;
-    margin: @mobile-space*1.5 auto;
+    font-weight: @font-s;
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 28px;
 }
 
 .info__price {
-    font-size: 1.8rem;
-    font-weight: @font-b;
+    font-weight: @font-b; 
+    font-size: 28px;
 }
 
 
 .info__discount {
+    font-size: 16px;
     color: @orange;
     font-weight: @font-b;
     margin: 0 @mobile-space;
@@ -42,6 +48,7 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    margin-bottom: 32px;
 }
 
 .info__rawprice {
@@ -54,13 +61,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: @mobile-space;
+    padding: 0 @mobile-space;
     border-radius: @border-r*2;
     font-weight: @font-b;
     margin: @mobile-space*1.5 auto;
+    height: 56px;
 
     button:active {
-            opacity: 0.5;
+            opacity: 0.25;
     }
 }
 
@@ -82,13 +90,13 @@
     gap: @mobile-space;
     box-shadow: 0px @mobile-space*1.5 @mobile-space*1.5 @pale-orange;
     width: 100%;
-    height: initial;
+    height: 56px;
     cursor: pointer;
 
 }
 
 .info__cart:active {
-    opacity: 0.5;
+    opacity: 0.25;
 
 }
 
@@ -100,23 +108,24 @@
     }
 
     .info__controller {
+    
       display: flex;
       column-gap: @mobile-space;
-      padding: @mobile-space*2 0;
     }
 
     .info__quantity {
       margin: 0;
-      width: 112px;
-      padding: 0 @mobile-space;
+      width: 140px;
+      padding: 0 8px;
     }
 
     .info__cart {
-      width: 240px;
+      width: 272px;
     }
 
     .info__name {
-      font-size: 2.5rem;
+        font-size: 44px;
+        line-height: 48px;
     }
 
     .info {

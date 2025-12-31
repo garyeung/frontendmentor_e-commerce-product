@@ -1,5 +1,5 @@
-import IProduct from "../interfaces/Product";
-import ICartItem from "../interfaces/CartItem"
+import IProduct from "@/interfaces/Product";
+import ICartItem from "@/interfaces/CartItem"
 
 import product1 from '@/assets/images/image-product-1.jpg';
 import product2 from '@/assets/images/image-product-2.jpg';
@@ -38,7 +38,7 @@ export const setCarItemsInStorage = (carItems: ICartItem[]) => {
     }
 }
 
-export const getProduct = (id: number):IProduct|null => {
+export const getProductInStore = (id: number):IProduct|null => {
         const result = productStore.find(p => p.id === id)
         if(result) {
             return result;
