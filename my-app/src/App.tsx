@@ -1,10 +1,15 @@
 import { useEffect, useReducer, } from 'react'
 import '@/App.less'
-import Header from '@/components/uis/Header'
-import Product from '@/components/uis/Product'
 import { ActionType, CartItemReducer } from '@/services/reducer'
-import { CartItemContext } from '@/services/context'
+import { CartItemContext, ProductContext } from '@/services/context'
 import { getCartItemsInStorage, getProductInStore, setCarItemsInStorage } from '@/services/store'
+import { Route, Routes } from 'react-router'
+import { Page } from './layouts/page'
+import Collections from './pages/Collections'
+import Men from './pages/Men'
+import Women from './pages/Women'
+import About from './pages/About'
+import { Contact } from './pages/Contact'
 
 function App() {
   const [cartItems, dispatch] = useReducer(CartItemReducer, [], getCartItemsInStorage)
@@ -43,12 +48,19 @@ function App() {
         add: addCartItem,
         del: delCartItem
       }}>
-        <div className='container'>
-          <Header></Header>
-          <main className='main'>
-            <Product product={sampleProduct} />
-          </main>
-        </div>
+        <ProductContext.Provider value={{
+          value: sampleProduct
+        }}>
+          <Routes>
+            <Route path="/" element={<Page/>}>
+              <Route index path="collections" element={<Collections/>} />
+              <Route path="women" element={<Women/>} />
+              <Route path="men" element={<Men />} />
+              <Route path="about" element={<About/>} />
+              <Route path="contact" element={<Contact/>} />
+            </Route>
+          </Routes>
+        </ProductContext.Provider>
       </CartItemContext.Provider>
   )
 }
