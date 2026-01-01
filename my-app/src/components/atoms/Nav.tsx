@@ -1,37 +1,20 @@
-import { useState } from "react";
+import { NavLink } from "react-router";
 import '@/components/atoms/Nav.less';
-
-export interface Navlink {
-    name: string,
-    url: string
-}
+import { routes } from "@/routes";
 
 function Nav(){
-    const navdata: Navlink[] = [
-        {
-            name: 'collections',
-            url: '#' 
-        },
-        {
-            name: 'men',
-            url: '#'
-        },
-        {
-            name: 'women',
-            url: '#'
-        },
-        {
-            name: 'about',
-            url: '#'
-        },
-        {
-            name: 'contact',
-            url: '#'
-        },
-    ];
-
-    const lis = navdata.map((item, index) => {
-        return <NavLink url={item.url} name={item.name} key={item.name+index}/>;
+    const lis = routes.map((item, index) => {
+        return (
+            <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                    `nav__link ${isActive ? 'nav__link--active' : ''}`
+                }
+                key={item.name+index}
+            >
+                {item.name}
+            </NavLink>
+        );
     })
 
     return (
@@ -39,13 +22,6 @@ function Nav(){
             {lis}
         </nav>
     );
-}
-
-function NavLink({name, url}: {name: string, url: string}){
-    const [cliking, setClicking]= useState(false);
-    return (
-        <a className={`nav__link ${cliking? 'nav__link--active': ""}`}  href={url} onMouseDown={() => setClicking(true)} onMouseUp={() => setClicking(false)}>{name}</a>
-    )
 }
 
 export default Nav;
