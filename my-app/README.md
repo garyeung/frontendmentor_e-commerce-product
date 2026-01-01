@@ -1,30 +1,74 @@
-# React + TypeScript + Vite
+# E-commerce Product Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a front-end implementation of an e-commerce product page, built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project aims to replicate the functionality and design of a modern e-commerce product page. It includes features such as a product gallery with a lightbox, quantity selection, an "add to cart" functionality, and a cart view. The project is built with a focus on component-based architecture and a clean, maintainable codebase.
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The project is organized into the following directories:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+/
+├── public/               # Static assets
+├── src/
+│   ├── assets/           # Images, fonts, and other assets
+│   ├── components/       # Reusable UI components
+│   ├── hooks/            # Custom React hooks
+│   ├── interfaces/       # TypeScript interfaces
+│   ├── layouts/          # Page layouts
+│   ├── pages/            # Application pages
+│   ├── services/         # Application-wide services (e.g., context, store)
+│   ├── App.tsx           # Main application component
+│   ├── index.tsx         # Entry point of the application
+│   └── routes.tsx        # Application routing
+├── .eslintrc.cjs         # ESLint configuration
+├── index.html            # Main HTML file
+├── package.json          # Project metadata and dependencies
+├── tsconfig.json         # TypeScript configuration
+└── vite.config.ts        # Vite configuration
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/) and [npm](https://npmjs.com/) installed.
+
+### Installation
+
+1.  Clone the repo:
+    ```sh
+    git clone https://github.com/garyeung/frontendmentor_e-commerce-product.git 
+    ```
+2.  Navigate to the project directory:
+    ```sh
+    cd my-app
+    ```
+3.  Install NPM packages:
+    ```sh
+    npm install
+    ```
+
+### Running the Application
+
+To run the application in development mode, use the following command:
+
+```sh
+npm dev
+```
+
+This will start the development server at `http://localhost:5173`.
+
+## Available Scripts
+
+In the project directory, you can run:
+
+-   `npm dev`: Runs the app in the development mode.
+-   `npm build`: Builds the app for production to the `dist` folder.
+-   `npm lint`: Lints the project files using ESLint.
+-   `npm preview`: Serves the production build locally.
