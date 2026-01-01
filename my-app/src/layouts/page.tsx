@@ -1,4 +1,5 @@
 import Header from "@/components/uis/Header"
+import "./page.less"
 import { Outlet } from "react-router"
 
 
