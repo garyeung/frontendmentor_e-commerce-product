@@ -53,23 +53,12 @@ Users should be able to:
 - [React](https://reactjs.org/) - JS library
 - [Less](https://lesscss.org/) - For styles
 - [Vite](https://vitejs.dev/)  - For development and building 
+- [React Router](https://reactrouter.com/) - For routing
 
 
 ### What I learned
 I know more about what React is. The core concepts of React are props and states. States are created inside the component.  
 The communication between components is done by passing props.   
 And I have learned how to use useReduer and useContext.   
-And realised that tailwindCSS is more suitable than modular CSS in today when frontend development is becoming more and more modular. atomic style CSS is better decoupled from html.   You don't need to write another html structure in css files.
-
-### Continued development
-Create a full version of the e-commerce application.  
-Use Rotuer to render each page.  
-Make the components more modular.  
-Create three screen sizes for the app, not just mobile and desktop, but also pad size.  
-
-### Useful resources
-
-## Author
-
-
-## Acknowledgments
+And realised that tailwindCSS is more suitable than modular CSS in today when frontend development is becoming more and more modular. atomic style CSS is better decoupled from html.   
+You don't need to write another html structure in css files.

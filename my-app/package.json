@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "e-commerce-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router": "^7.11.0"
   },
   "devDependencies": {
     "@swc/cli": "^0.7.8",
