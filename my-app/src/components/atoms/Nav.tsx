@@ -35,7 +35,7 @@ function Nav(){
     })
 
     return (
-        <nav role="nav" className="nav">
+        <nav className="nav">
             {lis}
         </nav>
     );
