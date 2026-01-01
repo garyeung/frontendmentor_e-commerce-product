@@ -47,7 +47,7 @@ Make sure you have [Node.js](https://nodejs.org/) and [npm](https://npmjs.com/) 
     ```
 2.  Navigate to the project directory:
     ```sh
-    cd my-app
+    cd e-commerce-frontend
     ```
 3.  Install NPM packages:
     ```sh
@@ -68,7 +68,7 @@ This will start the development server at `http://localhost:5173`.
 
 In the project directory, you can run:
 
--   `npm dev`: Runs the app in the development mode.
--   `npm build`: Builds the app for production to the `dist` folder.
--   `npm lint`: Lints the project files using ESLint.
--   `npm preview`: Serves the production build locally.
+-   `npm run dev`: Runs the app in the development mode.
+-   `npm run build`: Builds the app for production to the `dist` folder.
+-   `npm run lint`: Lints the project files using ESLint.
+-   `npm run preview`: Serves the production build locally.
