@@ -3,13 +3,9 @@ import '@/App.less'
 import { ActionType, CartItemReducer } from '@/services/reducer'
 import { CartItemContext, ProductContext } from '@/services/context'
 import { getCartItemsInStorage, getProductInStore, setCarItemsInStorage } from '@/services/store'
-import { Route, Routes } from 'react-router'
+import { Route, Routes, Navigate } from 'react-router'
 import { Page } from './layouts/page'
-import Collections from './pages/Collections'
-import Men from './pages/Men'
-import Women from './pages/Women'
-import About from './pages/About'
-import { Contact } from './pages/Contact'
+import { routes } from './routes'
 
 function App() {
   const [cartItems, dispatch] = useReducer(CartItemReducer, [], getCartItemsInStorage)
@@ -53,11 +49,10 @@ function App() {
         }}>
           <Routes>
             <Route path="/" element={<Page/>}>
-              <Route index path="collections" element={<Collections/>} />
-              <Route path="women" element={<Women/>} />
-              <Route path="men" element={<Men />} />
-              <Route path="about" element={<About/>} />
-              <Route path="contact" element={<Contact/>} />
+              <Route path="/" element={<Navigate to="/collections" replace />} />
+              {routes.map((route, index) => (
+                <Route key={route.name+index} path={route.path.slice(1)} element={route.element} />
+              ))}
             </Route>
           </Routes>
         </ProductContext.Provider>
