@@ -49,12 +49,18 @@ const Lightbox = ({pictures, productName, startIndex, handleClose}:Props) => {
         <div className="lightbox__wrapper">
           <div className="lightbox" ref={lightboxRef}>
               <div className="lightbox__closeBoard">
-                <Button onClick={handleClose} activeIcon={<IconCloseActive/>} primaryIcon={<IconClose/>}/>
+                <Button onClick={handleClose} activeIcon={<IconCloseActive/>} primaryIcon={<IconClose/>}
+                label='Close lightbox'
+                />
               </div>
               <div className="lightbox__main">
                   <div className="lightbox__buttons">
-                    <Button onClick={() => handleActivePic("pre")} activeIcon={<IconPreActive/>} primaryIcon={<IconPre/>}/>
-                    <Button onClick={() => handleActivePic("next")} activeIcon={<IconNextActive/>} primaryIcon={<IconNext/>}/>
+                    <Button onClick={() => handleActivePic("pre")} activeIcon={<IconPreActive/>} primaryIcon={<IconPre/>}
+                    label='Previous image'
+                    />
+                    <Button onClick={() => handleActivePic("next")} activeIcon={<IconNextActive/>} primaryIcon={<IconNext/>}
+                    label='Next image'
+                    />
                   </div>
                   <div className="lightbox__mainPic">
                       <img src={pictures[activePic]} alt={productName} />

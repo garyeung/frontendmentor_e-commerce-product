@@ -60,11 +60,11 @@ function Info({...props}: Props){
             </div>
             <div className='info__controller'>
                 <div className='info__quantity'>
-                    <button onClick={reduceQuantity} className='info__reduce'>
+                    <button onClick={reduceQuantity} className='info__reduce' aria-label="Reduce quantity">
                         <IconMinus />
                     </button>
                     <span>{quantity}</span>
-                    <button onClick={addQuantity}>
+                    <button onClick={addQuantity} aria-label="Increase quantity">
                         <IconPush />
                     </button>
                 </div>

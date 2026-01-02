@@ -4,6 +4,7 @@ interface Props {
     onClick: () => void
     activeIcon: JSX.Element
     primaryIcon: JSX.Element
+    label: string
 }
 const Button = (props: Props) => {
     const [active, setActive] = useState(false);
@@ -14,6 +15,7 @@ const Button = (props: Props) => {
         onClick={props.onClick}
         onMouseUp={()=>setActive(false)}
         onMouseDown={()=>setActive(true)}
+        aria-label={props.label}
         >
             {
                 active? props.activeIcon: props.primaryIcon
