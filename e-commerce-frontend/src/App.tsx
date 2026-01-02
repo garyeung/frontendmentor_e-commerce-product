@@ -3,9 +3,10 @@ import '@/App.less'
 import { ActionType, CartItemReducer } from '@/services/reducer'
 import { CartItemContext, ProductContext } from '@/services/context'
 import { getCartItemsInStorage, getProductInStore, setCarItemsInStorage } from '@/services/store'
-import { Route, Routes, Navigate } from 'react-router'
+import { Route, Routes } from 'react-router'
 import { Page } from './layouts/page'
 import { routes } from './routes'
+import Collections from './pages/Collections'
 
 function App() {
   const [cartItems, dispatch] = useReducer(CartItemReducer, [], getCartItemsInStorage)
@@ -49,9 +50,9 @@ function App() {
         }}>
           <Routes>
             <Route path="/" element={<Page/>}>
-              <Route path="/" element={<Navigate to="/collections" replace />} />
+              <Route index element={<Collections />} />
               {routes.map((route, index) => (
-                <Route key={route.name+index} path={route.path.slice(1)} element={route.element} />
+                <Route key={route.name+index} path={route.path} element={route.element} />
               ))}
             </Route>
           </Routes>
