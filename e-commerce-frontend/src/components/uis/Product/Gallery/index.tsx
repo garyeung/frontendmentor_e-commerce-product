@@ -51,7 +51,9 @@ function Gallery({pictures, productName}:Props) {
                 </div>
                 <button 
                 className="gallery__mainPic"
-                onClick={()=>setActiveLightbox(true)}>
+                onClick={()=>setActiveLightbox(true)}
+                aria-label="View product image in lightbox"
+                >
                     <img src={pictures[activePic]} alt={productName}/>
                 </button>
             </div>
