@@ -32,9 +32,9 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop](./ecommerce-product-page-desktop.png)
-![Mobile](./ecommerce-product-page-mobile.png)
-![Mobile-Menu](./ecommerce-product-page-mobile-menu.png)
+<img src="./ecommerce-product-page-mobile.png" alt="Mobile" width="300px">
+<img src="./ecommerce-product-page-mobile-menu.png" alt="Mobile-Menu" width="300px">
+<img src="./ecommerce-product-page-desktop.png" alt="Desktop" width="300px">
 
 
 ### Links
