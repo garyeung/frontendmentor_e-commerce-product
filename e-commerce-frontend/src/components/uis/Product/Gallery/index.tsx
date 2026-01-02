@@ -49,11 +49,11 @@ function Gallery({pictures, productName}:Props) {
                     onClick={() => handleActivePic("next")} 
                     activeIcon={<IconNextActive/>} primaryIcon={<IconNext/>}/>
                 </div>
-                <div 
+                <button 
                 className="gallery__mainPic"
                 onClick={()=>setActiveLightbox(true)}>
                     <img src={pictures[activePic]} alt={productName}/>
-                </div>
+                </button>
             </div>
             <div className="gallery__thumbnails">
                 {thumbnails}
