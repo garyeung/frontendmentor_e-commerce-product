@@ -44,10 +44,14 @@ function Gallery({pictures, productName}:Props) {
                     onClick={() => handleActivePic("pre")} 
                     activeIcon={<IconPreActive/>} 
                     primaryIcon={<IconPre/>}
+                    label="Previous image"
                     />
                     <Button 
                     onClick={() => handleActivePic("next")} 
-                    activeIcon={<IconNextActive/>} primaryIcon={<IconNext/>}/>
+                    activeIcon={<IconNextActive/>} 
+                    primaryIcon={<IconNext/>}
+                    label="Next image"
+                    />
                 </div>
                 <button 
                 className="gallery__mainPic"
