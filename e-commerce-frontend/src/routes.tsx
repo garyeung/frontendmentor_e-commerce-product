@@ -15,14 +15,14 @@ export const routes:{
         element: <Collections/>
     },
     {
-        path: "/women",
-        name: "Women",
-        element: <Women/>
-    },
-    {
         path: "/men",
         name: "Men",
         element: <Men/>
+    },
+    {
+        path: "/women",
+        name: "Women",
+        element: <Women/>
     },
     {
         path: "/about",

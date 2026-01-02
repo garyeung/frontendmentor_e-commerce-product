@@ -9,9 +9,9 @@ interface Props {
 function Thumbnail({currentPath,active, current, name, handleCurrent}: Props) {
 
     return (
-        <div className={"thumbnail " +(active === current ? "thumbnail--active": "")} onClick={handleCurrent}>
+        <button className={"thumbnail " +(active === current ? "thumbnail--active": "")} onClick={handleCurrent}>
             <img src={currentPath} alt={name}/>
-        </div>
+        </button>
     )
 }
 

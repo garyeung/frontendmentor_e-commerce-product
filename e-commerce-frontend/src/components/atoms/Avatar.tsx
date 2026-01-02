@@ -5,7 +5,7 @@ import { useClickOutside } from '@/hooks/useClickOutside';
 
 function Avatar({avatarUrl}:{avatarUrl: string}){
     const [active, setActive]= useState(false);
-    const avatarRef = useRef<HTMLDivElement>(null)
+    const avatarRef = useRef<HTMLButtonElement>(null)
 
     useClickOutside(avatarRef, ()=> {
         setActive(false);
@@ -18,13 +18,13 @@ function Avatar({avatarUrl}:{avatarUrl: string}){
     
 
     return(
-        <div 
+        <button 
         ref={avatarRef}
         className={`avatar ${active? 'avatar--active': ""}`}
         onClick={handleClick}
          > 
             <img src={avatarUrl} alt="avatar"/>
-        </div>
+        </button>
     )
 }
 
