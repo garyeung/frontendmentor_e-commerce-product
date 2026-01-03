@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import './Info.less';
 import IconPush from '@/assets/images/icon-plus.svg?react';
 import IconMinus from '@/assets/images/icon-minus.svg?react';
-import IconCart from '@/assets/images/icon-cart-light.svg?react';
+import IconCart from '@/assets/images/icon-cart-dark.svg?react';
 import { discountInString, priceInString, rawprice } from '@/services/utils';
 import { CartItemContext } from '@/services/context';
 

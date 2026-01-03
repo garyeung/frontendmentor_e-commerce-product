@@ -5,7 +5,7 @@
 
 .info__brand {
     display: block;
-    color: @orange;
+    color: @dark-grayish-blue;
     text-transform: uppercase;
     font-weight: @font-b;
     letter-spacing: 2px;
@@ -37,11 +37,11 @@
 
 .info__discount {
     font-size: 16px;
-    color: @orange;
+    color: @white;
     font-weight: @font-b;
     margin: 0 @mobile-space;
     padding: 2px 8px;
-    background: @pale-orange;
+    background: @very-dark-blue;
     border-radius: @border-r;
 }
 .info__amount {
@@ -52,7 +52,7 @@
 }
 
 .info__rawprice {
-    color: @grayish-blue;
+    color: @dark-grayish-blue;
     font-weight: @font-b;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .info__cart {
-    color: @white;
+    color: @very-dark-blue;
     background: @orange;
     font-weight: @font-b;
     padding: @mobile-space;
@@ -92,6 +92,12 @@
     width: 100%;
     height: 56px;
     cursor: pointer;
+
+
+    // cart icon
+    svg path {
+        fill: @very-dark-blue;
+    }
 
 }
 
